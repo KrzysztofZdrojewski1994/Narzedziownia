@@ -138,6 +138,33 @@ Public Class SQLServerConnection
 
     End Function
 
+    Public Function ExecQueryToList(Query As String) As List(Of String)
+        Dim oSQLReader As SqlDataReader
+        Dim MyList As New List(Of String)
+        'Reset Query stats
+        exception = ""
+        Try
+            dbcon.Open()
+            dbcmd = New SqlCommand(Query, dbcon)
+
+            ' dbds = New DataSet
+            ' dbda = New SqlDataAdapter(dbcmd)
+            ' dbda.Fill(dbds)
+            oSQLReader = dbcmd.ExecuteReader
+            While oSQLReader.Read
+                MyList.Add(oSQLReader.GetInt32(0))
+            End While
+            ExecQueryToList = MyList
+            '            Debug.Print("test" & RecordCount)
+
+        Catch ex As Exception
+            exception = "ExecQuery Error: " & vbNewLine & ex.Message
+        Finally
+            If dbcon.State = ConnectionState.Open Then dbcon.Close()
+        End Try
+
+    End Function
+
 
 
 

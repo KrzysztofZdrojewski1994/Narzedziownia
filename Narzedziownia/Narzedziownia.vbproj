@@ -76,7 +76,8 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.vb" />
+    <Compile Include="MyDataGridSetting.vb" />
+    <Compile Include="SQLServerConnection.vb" />
     <Compile Include="InputValidation.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
@@ -139,16 +140,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Narzedziownia2DataSet7.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Narzedziownia2FakturySerwis.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Narzedziownia2FakturySerwis.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Narzedziownia2Uzytkownicy.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Narzedziownia2Uzytkownicy.xsd</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -260,28 +251,6 @@
     </None>
     <None Include="Narzedziownia2DataSet7.xss">
       <DependentUpon>Narzedziownia2DataSet7.xsd</DependentUpon>
-    </None>
-    <None Include="Narzedziownia2FakturySerwis.xsc">
-      <DependentUpon>Narzedziownia2FakturySerwis.xsd</DependentUpon>
-    </None>
-    <None Include="Narzedziownia2FakturySerwis.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Narzedziownia2FakturySerwis.Designer.vb</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Narzedziownia2FakturySerwis.xss">
-      <DependentUpon>Narzedziownia2FakturySerwis.xsd</DependentUpon>
-    </None>
-    <None Include="Narzedziownia2Uzytkownicy.xsc">
-      <DependentUpon>Narzedziownia2Uzytkownicy.xsd</DependentUpon>
-    </None>
-    <None Include="Narzedziownia2Uzytkownicy.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Narzedziownia2Uzytkownicy.Designer.vb</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Narzedziownia2Uzytkownicy.xss">
-      <DependentUpon>Narzedziownia2Uzytkownicy.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
