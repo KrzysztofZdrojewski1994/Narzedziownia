@@ -165,7 +165,42 @@ Public Class SQLServerConnection
 
     End Function
 
+    Public Function SelectQuery(Query As String) As String
+        Dim myReader As SqlDataReader
+        'Reset Query stats
+        RecordCount = "0"
+        exception = ""
+        Try
+            dbcon.Open()
+            dbcmd = New SqlCommand(Query, dbcon)
 
+            'params.ForEach(Sub(p) dbcmd.Parameters.Add(p))
+            'Debug.Print("Test")
+            'params.Clear()
+
+            myReader = dbcmd.ExecuteReader
+
+            Do While myReader.Read()
+                SelectQuery = myReader.GetInt32(0)
+
+            Loop
+
+            'dbdt = New DataTable
+            'dbda = New SqlDataAdapter(dbcmd)
+
+            'RecordCount = dbda.Fill(dbdt)
+
+
+            'SelectQuery = RecordCount
+
+        Catch ex As Exception
+            exception = "SelectQuery Error: " & vbNewLine & ex.Message
+            SelectQuery = exception
+        Finally
+            If dbcon.State = ConnectionState.Open Then dbcon.Close()
+        End Try
+
+    End Function
 
 
     Public Function ExecQuery(Query As String) As String

@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class form
+Partial Class Menu
     Inherits System.Windows.Forms.Form
 
     'Formularz przesłania metodę dispose, aby wyczyścić listę składników.
@@ -27,7 +27,7 @@ Partial Class form
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(form))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Menu))
         Me.MenuStrip2 = New System.Windows.Forms.MenuStrip()
         Me.ObsługaWypożyczeńToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Wypożycz = New System.Windows.Forms.ToolStripMenuItem()
@@ -35,23 +35,11 @@ Partial Class form
         Me.SprawdźMojeWypożyczeniaMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.AdminToolStrip = New System.Windows.Forms.ToolStripMenuItem()
         Me.NarzedzieMenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DodajNarzedzieMenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EdytujNarzedzieMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.PracownikMenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DodajPracownikMenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EdytujPracownikMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.SerwisMenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EdytujSerwisMenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DodajSerwisMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.FakturyMenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DodajToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EdytujToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.DostawceMenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DostawcaDodajMenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EdytujDostawceMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.FakturaSerwisMenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DodajFaktureSerwisMenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EdytujFaktureSerwisMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.TypNarzędziaToolStripMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.DodajTypNarzedziaMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.EdytujTypNarzedziaMenu = New System.Windows.Forms.ToolStripMenuItem()
@@ -62,11 +50,11 @@ Partial Class form
         Me.StanMagazynuMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.WypożyczeniaNaPracownikaMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.HistoriaNarzędziaMenu = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PodsumowanieNarzędziaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NotifyIcon1 = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.Narzedziownia2DataSet1 = New Narzedziownia.Narzedziownia2DataSet1()
         Me.Narzedziownia2DataSet5 = New Narzedziownia.Narzedziownia2DataSet5()
         Me.Narzedziownia2DataSet4 = New Narzedziownia.Narzedziownia2DataSet4()
-        Me.UzytkownicyBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.NarzedziaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Narzedziownia2DataSet2 = New Narzedziownia.Narzedziownia2DataSet2()
         Me.Narzedziownia2DataSet7 = New Narzedziownia.Narzedziownia2DataSet7()
@@ -139,6 +127,13 @@ Partial Class form
         Me.Label21 = New System.Windows.Forms.Label()
         Me.DodajFaktureNrFaktury = New System.Windows.Forms.TextBox()
         Me.HistoriaNarzędzia = New System.Windows.Forms.TabPage()
+        Me.HistoriaNarzędziaTabela = New ADGV.AdvancedDataGridView()
+        Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.HistoriaNarzedziaID = New System.Windows.Forms.ComboBox()
+        Me.LicznikHistoriaNarzędzia = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Label54 = New System.Windows.Forms.Label()
+        Me.label = New System.Windows.Forms.Label()
         Me.DodajDostawce = New System.Windows.Forms.TabPage()
         Me.TabelaDodajDostawce = New ADGV.AdvancedDataGridView()
         Me.PanelDostawca = New System.Windows.Forms.Panel()
@@ -162,8 +157,36 @@ Partial Class form
         Me.Label13 = New System.Windows.Forms.Label()
         Me.DostawcaTelefon = New System.Windows.Forms.TextBox()
         Me.PowrótZserwisu = New System.Windows.Forms.TabPage()
+        Me.PowrotSerwisTable = New ADGV.AdvancedDataGridView()
+        Me.PowrotSerwisPanel = New System.Windows.Forms.Panel()
+        Me.PowrotSerwisNrFaktury = New System.Windows.Forms.ComboBox()
+        Me.Label51 = New System.Windows.Forms.Label()
+        Me.Label47 = New System.Windows.Forms.Label()
+        Me.PowrotSerwisStawka = New System.Windows.Forms.TextBox()
+        Me.Label46 = New System.Windows.Forms.Label()
+        Me.PowrotSerwisUwagi = New System.Windows.Forms.TextBox()
+        Me.PowrotSerwisIdNarzedzia = New System.Windows.Forms.ComboBox()
+        Me.LicznikPowrotSerwis = New System.Windows.Forms.Label()
+        Me.PowrotSerwisBtn = New System.Windows.Forms.Button()
+        Me.ErrLblPowrotSerwis = New System.Windows.Forms.Label()
+        Me.Label52 = New System.Windows.Forms.Label()
         Me.OddajNaSerwis = New System.Windows.Forms.TabPage()
+        Me.SerwisOddajTabela = New ADGV.AdvancedDataGridView()
+        Me.WydajPanel = New System.Windows.Forms.Panel()
+        Me.Label45 = New System.Windows.Forms.Label()
+        Me.UwagiOddajSerwis = New System.Windows.Forms.TextBox()
+        Me.IdNarzedzieOddajSerwis = New System.Windows.Forms.ComboBox()
+        Me.LicznikOddajNaSerwis = New System.Windows.Forms.Label()
+        Me.OddajSerwsiBtn = New System.Windows.Forms.Button()
+        Me.ErrLblSerwisOddaj = New System.Windows.Forms.Label()
+        Me.Label49 = New System.Windows.Forms.Label()
+        Me.IdSerwisOddaj = New System.Windows.Forms.ComboBox()
+        Me.Label50 = New System.Windows.Forms.Label()
         Me.StanMagazynu = New System.Windows.Forms.TabPage()
+        Me.StanMagazynuTabela = New ADGV.AdvancedDataGridView()
+        Me.PanelStanMagazynu = New System.Windows.Forms.Panel()
+        Me.LicznikStanMagazynu = New System.Windows.Forms.Label()
+        Me.ErrLblStanMagazynu = New System.Windows.Forms.Label()
         Me.DodajSerwis = New System.Windows.Forms.TabPage()
         Me.TabelaDodajSerwis = New ADGV.AdvancedDataGridView()
         Me.PanelDodajSerwis = New System.Windows.Forms.Panel()
@@ -253,12 +276,16 @@ Partial Class form
         Me.IDPracownikaWypożyczLbl = New System.Windows.Forms.Label()
         Me.IdPracownikaWypozycz = New System.Windows.Forms.ComboBox()
         Me.IdNarzedziaWypożyczLbl = New System.Windows.Forms.Label()
-        Me.TabControl = New System.Windows.Forms.TabControl()
+        Me.MyTab = New System.Windows.Forms.TabControl()
+        Me.PodsumowanieNarzędzi = New System.Windows.Forms.TabPage()
+        Me.PodsumowanieNarzędziTabela = New ADGV.AdvancedDataGridView()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.PodsumowanieLicznik = New System.Windows.Forms.Label()
+        Me.UzytkownicyBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.MenuStrip2.SuspendLayout()
         CType(Me.Narzedziownia2DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Narzedziownia2DataSet5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Narzedziownia2DataSet4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.UzytkownicyBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NarzedziaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Narzedziownia2DataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Narzedziownia2DataSet7, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -279,9 +306,21 @@ Partial Class form
         Me.DodajFakture.SuspendLayout()
         CType(Me.TabelaDodajFakture, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelDodajFakture.SuspendLayout()
+        Me.HistoriaNarzędzia.SuspendLayout()
+        CType(Me.HistoriaNarzędziaTabela, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel5.SuspendLayout()
         Me.DodajDostawce.SuspendLayout()
         CType(Me.TabelaDodajDostawce, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelDostawca.SuspendLayout()
+        Me.PowrótZserwisu.SuspendLayout()
+        CType(Me.PowrotSerwisTable, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PowrotSerwisPanel.SuspendLayout()
+        Me.OddajNaSerwis.SuspendLayout()
+        CType(Me.SerwisOddajTabela, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.WydajPanel.SuspendLayout()
+        Me.StanMagazynu.SuspendLayout()
+        CType(Me.StanMagazynuTabela, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PanelStanMagazynu.SuspendLayout()
         Me.DodajSerwis.SuspendLayout()
         CType(Me.TabelaDodajSerwis, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelDodajSerwis.SuspendLayout()
@@ -300,7 +339,11 @@ Partial Class form
         Me.WypożyczTab.SuspendLayout()
         CType(Me.WypożyczTabela, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.WypożyczPanel.SuspendLayout()
-        Me.TabControl.SuspendLayout()
+        Me.MyTab.SuspendLayout()
+        Me.PodsumowanieNarzędzi.SuspendLayout()
+        CType(Me.PodsumowanieNarzędziTabela, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel4.SuspendLayout()
+        CType(Me.UzytkownicyBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStrip2
@@ -312,7 +355,7 @@ Partial Class form
         Me.MenuStrip2.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip2.Name = "MenuStrip2"
         Me.MenuStrip2.Padding = New System.Windows.Forms.Padding(8, 4, 0, 2)
-        Me.MenuStrip2.Size = New System.Drawing.Size(1241, 38)
+        Me.MenuStrip2.Size = New System.Drawing.Size(3057, 38)
         Me.MenuStrip2.TabIndex = 1
         Me.MenuStrip2.Text = "MenuStrip2"
         '
@@ -355,121 +398,42 @@ Partial Class form
         'NarzedzieMenu
         '
         Me.NarzedzieMenu.BackColor = System.Drawing.SystemColors.Control
-        Me.NarzedzieMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DodajNarzedzieMenu, Me.EdytujNarzedzieMenu})
         Me.NarzedzieMenu.Name = "NarzedzieMenu"
         Me.NarzedzieMenu.Size = New System.Drawing.Size(259, 32)
         Me.NarzedzieMenu.Text = "Narzedzie"
         '
-        'DodajNarzedzieMenu
-        '
-        Me.DodajNarzedzieMenu.Name = "DodajNarzedzieMenu"
-        Me.DodajNarzedzieMenu.Size = New System.Drawing.Size(158, 32)
-        Me.DodajNarzedzieMenu.Text = "Dodaj"
-        '
-        'EdytujNarzedzieMenu
-        '
-        Me.EdytujNarzedzieMenu.Name = "EdytujNarzedzieMenu"
-        Me.EdytujNarzedzieMenu.Size = New System.Drawing.Size(158, 32)
-        Me.EdytujNarzedzieMenu.Text = "Edytuj"
-        '
         'PracownikMenu
         '
         Me.PracownikMenu.BackColor = System.Drawing.SystemColors.Control
-        Me.PracownikMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DodajPracownikMenu, Me.EdytujPracownikMenu})
         Me.PracownikMenu.Name = "PracownikMenu"
         Me.PracownikMenu.Size = New System.Drawing.Size(259, 32)
         Me.PracownikMenu.Text = "Pracownik"
         '
-        'DodajPracownikMenu
-        '
-        Me.DodajPracownikMenu.BackColor = System.Drawing.SystemColors.Control
-        Me.DodajPracownikMenu.Name = "DodajPracownikMenu"
-        Me.DodajPracownikMenu.Size = New System.Drawing.Size(158, 32)
-        Me.DodajPracownikMenu.Text = "Dodaj"
-        '
-        'EdytujPracownikMenu
-        '
-        Me.EdytujPracownikMenu.Name = "EdytujPracownikMenu"
-        Me.EdytujPracownikMenu.Size = New System.Drawing.Size(158, 32)
-        Me.EdytujPracownikMenu.Text = "Edytuj"
-        '
         'SerwisMenu
         '
         Me.SerwisMenu.BackColor = System.Drawing.SystemColors.Control
-        Me.SerwisMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EdytujSerwisMenu, Me.DodajSerwisMenu})
         Me.SerwisMenu.Name = "SerwisMenu"
         Me.SerwisMenu.Size = New System.Drawing.Size(259, 32)
         Me.SerwisMenu.Text = "Serwis"
         '
-        'EdytujSerwisMenu
-        '
-        Me.EdytujSerwisMenu.Name = "EdytujSerwisMenu"
-        Me.EdytujSerwisMenu.Size = New System.Drawing.Size(158, 32)
-        Me.EdytujSerwisMenu.Text = "Edytuj"
-        '
-        'DodajSerwisMenu
-        '
-        Me.DodajSerwisMenu.Name = "DodajSerwisMenu"
-        Me.DodajSerwisMenu.Size = New System.Drawing.Size(158, 32)
-        Me.DodajSerwisMenu.Text = "Dodaj"
-        '
         'FakturyMenu
         '
-        Me.FakturyMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DodajToolStripMenuItem1, Me.EdytujToolStripMenuItem2})
         Me.FakturyMenu.Name = "FakturyMenu"
         Me.FakturyMenu.Size = New System.Drawing.Size(259, 32)
         Me.FakturyMenu.Text = "Faktury"
         '
-        'DodajToolStripMenuItem1
-        '
-        Me.DodajToolStripMenuItem1.Name = "DodajToolStripMenuItem1"
-        Me.DodajToolStripMenuItem1.Size = New System.Drawing.Size(158, 32)
-        Me.DodajToolStripMenuItem1.Text = "Dodaj"
-        '
-        'EdytujToolStripMenuItem2
-        '
-        Me.EdytujToolStripMenuItem2.Name = "EdytujToolStripMenuItem2"
-        Me.EdytujToolStripMenuItem2.Size = New System.Drawing.Size(158, 32)
-        Me.EdytujToolStripMenuItem2.Text = "Edytuj"
-        '
         'DostawceMenu
         '
         Me.DostawceMenu.BackColor = System.Drawing.SystemColors.Control
-        Me.DostawceMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DostawcaDodajMenu, Me.EdytujDostawceMenu})
         Me.DostawceMenu.Name = "DostawceMenu"
         Me.DostawceMenu.Size = New System.Drawing.Size(259, 32)
         Me.DostawceMenu.Text = "Dostawca"
         '
-        'DostawcaDodajMenu
-        '
-        Me.DostawcaDodajMenu.Name = "DostawcaDodajMenu"
-        Me.DostawcaDodajMenu.Size = New System.Drawing.Size(158, 32)
-        Me.DostawcaDodajMenu.Text = "Dodaj"
-        '
-        'EdytujDostawceMenu
-        '
-        Me.EdytujDostawceMenu.Name = "EdytujDostawceMenu"
-        Me.EdytujDostawceMenu.Size = New System.Drawing.Size(158, 32)
-        Me.EdytujDostawceMenu.Text = "Edytuj"
-        '
         'FakturaSerwisMenu
         '
-        Me.FakturaSerwisMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DodajFaktureSerwisMenu, Me.EdytujFaktureSerwisMenu})
         Me.FakturaSerwisMenu.Name = "FakturaSerwisMenu"
         Me.FakturaSerwisMenu.Size = New System.Drawing.Size(259, 32)
         Me.FakturaSerwisMenu.Text = "Faktury serwis"
-        '
-        'DodajFaktureSerwisMenu
-        '
-        Me.DodajFaktureSerwisMenu.Name = "DodajFaktureSerwisMenu"
-        Me.DodajFaktureSerwisMenu.Size = New System.Drawing.Size(158, 32)
-        Me.DodajFaktureSerwisMenu.Text = "Dodaj"
-        '
-        'EdytujFaktureSerwisMenu
-        '
-        Me.EdytujFaktureSerwisMenu.Name = "EdytujFaktureSerwisMenu"
-        Me.EdytujFaktureSerwisMenu.Size = New System.Drawing.Size(158, 32)
-        Me.EdytujFaktureSerwisMenu.Text = "Edytuj"
         '
         'TypNarzędziaToolStripMenu
         '
@@ -511,7 +475,7 @@ Partial Class form
         '
         'RaportyToolStripMenuItem
         '
-        Me.RaportyToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StanMagazynuMenu, Me.WypożyczeniaNaPracownikaMenu, Me.HistoriaNarzędziaMenu})
+        Me.RaportyToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StanMagazynuMenu, Me.WypożyczeniaNaPracownikaMenu, Me.HistoriaNarzędziaMenu, Me.PodsumowanieNarzędziaToolStripMenuItem})
         Me.RaportyToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold)
         Me.RaportyToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonShadow
         Me.RaportyToolStripMenuItem.Name = "RaportyToolStripMenuItem"
@@ -536,6 +500,12 @@ Partial Class form
         Me.HistoriaNarzędziaMenu.Size = New System.Drawing.Size(378, 32)
         Me.HistoriaNarzędziaMenu.Text = "Historia narzędzia"
         '
+        'PodsumowanieNarzędziaToolStripMenuItem
+        '
+        Me.PodsumowanieNarzędziaToolStripMenuItem.Name = "PodsumowanieNarzędziaToolStripMenuItem"
+        Me.PodsumowanieNarzędziaToolStripMenuItem.Size = New System.Drawing.Size(378, 32)
+        Me.PodsumowanieNarzędziaToolStripMenuItem.Text = "Podsumowanie narzędzia"
+        '
         'NotifyIcon1
         '
         Me.NotifyIcon1.Text = "NotifyIcon1"
@@ -555,10 +525,6 @@ Partial Class form
         '
         Me.Narzedziownia2DataSet4.DataSetName = "Narzedziownia2DataSet4"
         Me.Narzedziownia2DataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'UzytkownicyBindingSource1
-        '
-        Me.UzytkownicyBindingSource1.DataMember = "uzytkownicy"
         '
         'NarzedziaBindingSource
         '
@@ -635,7 +601,7 @@ Partial Class form
         Me.Edytuj.Location = New System.Drawing.Point(4, 25)
         Me.Edytuj.Name = "Edytuj"
         Me.Edytuj.Padding = New System.Windows.Forms.Padding(3)
-        Me.Edytuj.Size = New System.Drawing.Size(1233, 656)
+        Me.Edytuj.Size = New System.Drawing.Size(3049, 1258)
         Me.Edytuj.TabIndex = 15
         Me.Edytuj.Text = "Edytuj"
         '
@@ -654,7 +620,7 @@ Partial Class form
         Me.EdytujTabela.Name = "EdytujTabela"
         Me.EdytujTabela.RowHeadersWidth = 51
         Me.EdytujTabela.RowTemplate.Height = 24
-        Me.EdytujTabela.Size = New System.Drawing.Size(705, 650)
+        Me.EdytujTabela.Size = New System.Drawing.Size(2521, 1252)
         Me.EdytujTabela.TabIndex = 4
         Me.EdytujTabela.TimeFilter = False
         '
@@ -678,7 +644,7 @@ Partial Class form
         Me.Panel1.Location = New System.Drawing.Point(3, 3)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(522, 650)
+        Me.Panel1.Size = New System.Drawing.Size(522, 1252)
         Me.Panel1.TabIndex = 2
         '
         'ComboBoxLvlDostępEdytuj
@@ -759,7 +725,7 @@ Partial Class form
         Me.LicznikEdytuj.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.LicznikEdytuj.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
         Me.LicznikEdytuj.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.LicznikEdytuj.Location = New System.Drawing.Point(0, 601)
+        Me.LicznikEdytuj.Location = New System.Drawing.Point(0, 1203)
         Me.LicznikEdytuj.Name = "LicznikEdytuj"
         Me.LicznikEdytuj.Size = New System.Drawing.Size(522, 49)
         Me.LicznikEdytuj.TabIndex = 5
@@ -820,7 +786,7 @@ Partial Class form
         Me.TypNarzedzia.Location = New System.Drawing.Point(4, 25)
         Me.TypNarzedzia.Name = "TypNarzedzia"
         Me.TypNarzedzia.Padding = New System.Windows.Forms.Padding(3)
-        Me.TypNarzedzia.Size = New System.Drawing.Size(1233, 656)
+        Me.TypNarzedzia.Size = New System.Drawing.Size(3049, 1258)
         Me.TypNarzedzia.TabIndex = 14
         Me.TypNarzedzia.Text = "Typ narzedzia"
         '
@@ -841,7 +807,7 @@ Partial Class form
         Me.TypNarzedziaTabela.ReadOnly = True
         Me.TypNarzedziaTabela.RowHeadersWidth = 51
         Me.TypNarzedziaTabela.RowTemplate.Height = 24
-        Me.TypNarzedziaTabela.Size = New System.Drawing.Size(720, 650)
+        Me.TypNarzedziaTabela.Size = New System.Drawing.Size(2536, 1252)
         Me.TypNarzedziaTabela.TabIndex = 8
         Me.TypNarzedziaTabela.TimeFilter = False
         '
@@ -857,7 +823,7 @@ Partial Class form
         Me.TypNarzedziaPanel.Location = New System.Drawing.Point(3, 3)
         Me.TypNarzedziaPanel.Margin = New System.Windows.Forms.Padding(4)
         Me.TypNarzedziaPanel.Name = "TypNarzedziaPanel"
-        Me.TypNarzedziaPanel.Size = New System.Drawing.Size(507, 650)
+        Me.TypNarzedziaPanel.Size = New System.Drawing.Size(507, 1252)
         Me.TypNarzedziaPanel.TabIndex = 7
         '
         'LicznikTypNarzedzia
@@ -865,7 +831,7 @@ Partial Class form
         Me.LicznikTypNarzedzia.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.LicznikTypNarzedzia.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
         Me.LicznikTypNarzedzia.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.LicznikTypNarzedzia.Location = New System.Drawing.Point(0, 617)
+        Me.LicznikTypNarzedzia.Location = New System.Drawing.Point(0, 1219)
         Me.LicznikTypNarzedzia.Name = "LicznikTypNarzedzia"
         Me.LicznikTypNarzedzia.Size = New System.Drawing.Size(505, 31)
         Me.LicznikTypNarzedzia.TabIndex = 8
@@ -931,7 +897,7 @@ Partial Class form
         Me.DodajFaktureSerwis.Location = New System.Drawing.Point(4, 25)
         Me.DodajFaktureSerwis.Name = "DodajFaktureSerwis"
         Me.DodajFaktureSerwis.Padding = New System.Windows.Forms.Padding(3)
-        Me.DodajFaktureSerwis.Size = New System.Drawing.Size(1233, 656)
+        Me.DodajFaktureSerwis.Size = New System.Drawing.Size(3049, 1258)
         Me.DodajFaktureSerwis.TabIndex = 13
         Me.DodajFaktureSerwis.Text = "Dodaj fakture serwis"
         '
@@ -942,7 +908,7 @@ Partial Class form
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel2.Location = New System.Drawing.Point(507, 3)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(723, 650)
+        Me.Panel2.Size = New System.Drawing.Size(2539, 1252)
         Me.Panel2.TabIndex = 7
         '
         'TabelaDodajFaktureSerwis
@@ -962,7 +928,7 @@ Partial Class form
         Me.TabelaDodajFaktureSerwis.ReadOnly = True
         Me.TabelaDodajFaktureSerwis.RowHeadersWidth = 51
         Me.TabelaDodajFaktureSerwis.RowTemplate.Height = 24
-        Me.TabelaDodajFaktureSerwis.Size = New System.Drawing.Size(723, 650)
+        Me.TabelaDodajFaktureSerwis.Size = New System.Drawing.Size(2539, 1252)
         Me.TabelaDodajFaktureSerwis.TabIndex = 7
         Me.TabelaDodajFaktureSerwis.TimeFilter = False
         '
@@ -986,7 +952,7 @@ Partial Class form
         Me.PanelDodajFaktureSerwis.Location = New System.Drawing.Point(3, 3)
         Me.PanelDodajFaktureSerwis.Margin = New System.Windows.Forms.Padding(4)
         Me.PanelDodajFaktureSerwis.Name = "PanelDodajFaktureSerwis"
-        Me.PanelDodajFaktureSerwis.Size = New System.Drawing.Size(504, 650)
+        Me.PanelDodajFaktureSerwis.Size = New System.Drawing.Size(504, 1252)
         Me.PanelDodajFaktureSerwis.TabIndex = 6
         '
         'LicznikFakturySerwis
@@ -995,7 +961,7 @@ Partial Class form
         Me.LicznikFakturySerwis.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.LicznikFakturySerwis.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
         Me.LicznikFakturySerwis.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.LicznikFakturySerwis.Location = New System.Drawing.Point(0, 619)
+        Me.LicznikFakturySerwis.Location = New System.Drawing.Point(0, 1221)
         Me.LicznikFakturySerwis.Name = "LicznikFakturySerwis"
         Me.LicznikFakturySerwis.Size = New System.Drawing.Size(504, 31)
         Me.LicznikFakturySerwis.TabIndex = 8
@@ -1147,7 +1113,7 @@ Partial Class form
         Me.DodajFakture.Margin = New System.Windows.Forms.Padding(4)
         Me.DodajFakture.Name = "DodajFakture"
         Me.DodajFakture.Padding = New System.Windows.Forms.Padding(4)
-        Me.DodajFakture.Size = New System.Drawing.Size(1233, 656)
+        Me.DodajFakture.Size = New System.Drawing.Size(3048, 1236)
         Me.DodajFakture.TabIndex = 12
         Me.DodajFakture.Text = "Dodaj fakture"
         '
@@ -1168,7 +1134,7 @@ Partial Class form
         Me.TabelaDodajFakture.ReadOnly = True
         Me.TabelaDodajFakture.RowHeadersWidth = 51
         Me.TabelaDodajFakture.RowTemplate.Height = 24
-        Me.TabelaDodajFakture.Size = New System.Drawing.Size(725, 648)
+        Me.TabelaDodajFakture.Size = New System.Drawing.Size(2540, 1228)
         Me.TabelaDodajFakture.TabIndex = 6
         Me.TabelaDodajFakture.TimeFilter = False
         '
@@ -1192,7 +1158,7 @@ Partial Class form
         Me.PanelDodajFakture.Location = New System.Drawing.Point(4, 4)
         Me.PanelDodajFakture.Margin = New System.Windows.Forms.Padding(4)
         Me.PanelDodajFakture.Name = "PanelDodajFakture"
-        Me.PanelDodajFakture.Size = New System.Drawing.Size(500, 648)
+        Me.PanelDodajFakture.Size = New System.Drawing.Size(500, 1228)
         Me.PanelDodajFakture.TabIndex = 5
         '
         'LicznikFaktury
@@ -1201,7 +1167,7 @@ Partial Class form
         Me.LicznikFaktury.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.LicznikFaktury.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
         Me.LicznikFaktury.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.LicznikFaktury.Location = New System.Drawing.Point(0, 599)
+        Me.LicznikFaktury.Location = New System.Drawing.Point(0, 1179)
         Me.LicznikFaktury.Name = "LicznikFaktury"
         Me.LicznikFaktury.Size = New System.Drawing.Size(500, 49)
         Me.LicznikFaktury.TabIndex = 7
@@ -1348,13 +1314,118 @@ Partial Class form
         '
         Me.HistoriaNarzędzia.AutoScroll = True
         Me.HistoriaNarzędzia.BackColor = System.Drawing.Color.LightSlateGray
+        Me.HistoriaNarzędzia.Controls.Add(Me.HistoriaNarzędziaTabela)
+        Me.HistoriaNarzędzia.Controls.Add(Me.Panel5)
         Me.HistoriaNarzędzia.Location = New System.Drawing.Point(4, 25)
         Me.HistoriaNarzędzia.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.HistoriaNarzędzia.Name = "HistoriaNarzędzia"
         Me.HistoriaNarzędzia.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.HistoriaNarzędzia.Size = New System.Drawing.Size(1233, 656)
+        Me.HistoriaNarzędzia.Size = New System.Drawing.Size(3049, 1258)
         Me.HistoriaNarzędzia.TabIndex = 11
         Me.HistoriaNarzędzia.Text = "Historia narzędzia"
+        '
+        'HistoriaNarzędziaTabela
+        '
+        Me.HistoriaNarzędziaTabela.AllowUserToAddRows = False
+        Me.HistoriaNarzędziaTabela.AllowUserToDeleteRows = False
+        Me.HistoriaNarzędziaTabela.AllowUserToOrderColumns = True
+        Me.HistoriaNarzędziaTabela.AutoGenerateContextFilters = True
+        Me.HistoriaNarzędziaTabela.BackgroundColor = System.Drawing.Color.LightSlateGray
+        Me.HistoriaNarzędziaTabela.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.HistoriaNarzędziaTabela.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken
+        Me.HistoriaNarzędziaTabela.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.HistoriaNarzędziaTabela.DateWithTime = False
+        Me.HistoriaNarzędziaTabela.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.HistoriaNarzędziaTabela.Location = New System.Drawing.Point(511, 2)
+        Me.HistoriaNarzędziaTabela.Name = "HistoriaNarzędziaTabela"
+        Me.HistoriaNarzędziaTabela.ReadOnly = True
+        Me.HistoriaNarzędziaTabela.RowHeadersWidth = 51
+        Me.HistoriaNarzędziaTabela.RowTemplate.Height = 24
+        Me.HistoriaNarzędziaTabela.Size = New System.Drawing.Size(2535, 1254)
+        Me.HistoriaNarzędziaTabela.TabIndex = 9
+        Me.HistoriaNarzędziaTabela.TimeFilter = False
+        '
+        'Panel5
+        '
+        Me.Panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel5.Controls.Add(Me.HistoriaNarzedziaID)
+        Me.Panel5.Controls.Add(Me.LicznikHistoriaNarzędzia)
+        Me.Panel5.Controls.Add(Me.Button1)
+        Me.Panel5.Controls.Add(Me.Label54)
+        Me.Panel5.Controls.Add(Me.label)
+        Me.Panel5.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Panel5.Location = New System.Drawing.Point(3, 2)
+        Me.Panel5.Margin = New System.Windows.Forms.Padding(4)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Size = New System.Drawing.Size(508, 1254)
+        Me.Panel5.TabIndex = 8
+        '
+        'HistoriaNarzedziaID
+        '
+        Me.HistoriaNarzedziaID.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.HistoriaNarzedziaID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.HistoriaNarzedziaID.FormattingEnabled = True
+        Me.HistoriaNarzedziaID.Items.AddRange(New Object() {"Przelew", "Gotówka"})
+        Me.HistoriaNarzedziaID.Location = New System.Drawing.Point(170, 5)
+        Me.HistoriaNarzedziaID.Margin = New System.Windows.Forms.Padding(4)
+        Me.HistoriaNarzedziaID.Name = "HistoriaNarzedziaID"
+        Me.HistoriaNarzedziaID.Size = New System.Drawing.Size(325, 24)
+        Me.HistoriaNarzedziaID.TabIndex = 12
+        '
+        'LicznikHistoriaNarzędzia
+        '
+        Me.LicznikHistoriaNarzędzia.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.LicznikHistoriaNarzędzia.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.LicznikHistoriaNarzędzia.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.LicznikHistoriaNarzędzia.Location = New System.Drawing.Point(0, 1191)
+        Me.LicznikHistoriaNarzędzia.Name = "LicznikHistoriaNarzędzia"
+        Me.LicznikHistoriaNarzędzia.Size = New System.Drawing.Size(506, 61)
+        Me.LicznikHistoriaNarzędzia.TabIndex = 8
+        Me.LicznikHistoriaNarzędzia.Text = "Licznik typ narzedzia:"
+        Me.LicznikHistoriaNarzędzia.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.RoyalBlue
+        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.Navy
+        Me.Button1.FlatAppearance.BorderSize = 2
+        Me.Button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkBlue
+        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Navy
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.Button1.Location = New System.Drawing.Point(9, 38)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(486, 52)
+        Me.Button1.TabIndex = 8
+        Me.Button1.Text = "Dodaj"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
+        'Label54
+        '
+        Me.Label54.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Label54.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
+        Me.Label54.ForeColor = System.Drawing.Color.Black
+        Me.Label54.Location = New System.Drawing.Point(5, 94)
+        Me.Label54.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label54.Name = "Label54"
+        Me.Label54.Size = New System.Drawing.Size(504, 322)
+        Me.Label54.TabIndex = 11
+        Me.Label54.Text = "Komunikat:"
+        Me.Label54.Visible = False
+        '
+        'label
+        '
+        Me.label.AutoSize = True
+        Me.label.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.label.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.label.Location = New System.Drawing.Point(7, 8)
+        Me.label.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.label.Name = "label"
+        Me.label.Size = New System.Drawing.Size(116, 17)
+        Me.label.TabIndex = 10
+        Me.label.Text = "Typ narzędzia:"
         '
         'DodajDostawce
         '
@@ -1365,7 +1436,7 @@ Partial Class form
         Me.DodajDostawce.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.DodajDostawce.Name = "DodajDostawce"
         Me.DodajDostawce.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.DodajDostawce.Size = New System.Drawing.Size(1233, 656)
+        Me.DodajDostawce.Size = New System.Drawing.Size(3049, 1258)
         Me.DodajDostawce.TabIndex = 10
         Me.DodajDostawce.Text = "Dodaj dostawce"
         '
@@ -1384,7 +1455,7 @@ Partial Class form
         Me.TabelaDodajDostawce.Name = "TabelaDodajDostawce"
         Me.TabelaDodajDostawce.RowHeadersWidth = 51
         Me.TabelaDodajDostawce.RowTemplate.Height = 24
-        Me.TabelaDodajDostawce.Size = New System.Drawing.Size(705, 652)
+        Me.TabelaDodajDostawce.Size = New System.Drawing.Size(2521, 1254)
         Me.TabelaDodajDostawce.TabIndex = 3
         Me.TabelaDodajDostawce.TimeFilter = False
         '
@@ -1415,7 +1486,7 @@ Partial Class form
         Me.PanelDostawca.Location = New System.Drawing.Point(3, 2)
         Me.PanelDostawca.Margin = New System.Windows.Forms.Padding(4)
         Me.PanelDostawca.Name = "PanelDostawca"
-        Me.PanelDostawca.Size = New System.Drawing.Size(522, 652)
+        Me.PanelDostawca.Size = New System.Drawing.Size(522, 1254)
         Me.PanelDostawca.TabIndex = 1
         '
         'LicznikDostawca
@@ -1424,7 +1495,7 @@ Partial Class form
         Me.LicznikDostawca.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.LicznikDostawca.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
         Me.LicznikDostawca.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.LicznikDostawca.Location = New System.Drawing.Point(0, 603)
+        Me.LicznikDostawca.Location = New System.Drawing.Point(0, 1205)
         Me.LicznikDostawca.Name = "LicznikDostawca"
         Me.LicznikDostawca.Size = New System.Drawing.Size(522, 49)
         Me.LicznikDostawca.TabIndex = 5
@@ -1613,35 +1684,392 @@ Partial Class form
         'PowrótZserwisu
         '
         Me.PowrótZserwisu.BackColor = System.Drawing.Color.LightSlateGray
+        Me.PowrótZserwisu.Controls.Add(Me.PowrotSerwisTable)
+        Me.PowrótZserwisu.Controls.Add(Me.PowrotSerwisPanel)
         Me.PowrótZserwisu.Location = New System.Drawing.Point(4, 25)
         Me.PowrótZserwisu.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.PowrótZserwisu.Name = "PowrótZserwisu"
         Me.PowrótZserwisu.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.PowrótZserwisu.Size = New System.Drawing.Size(1233, 656)
+        Me.PowrótZserwisu.Size = New System.Drawing.Size(3049, 1258)
         Me.PowrótZserwisu.TabIndex = 9
         Me.PowrótZserwisu.Text = "Powrót z serwisu"
+        '
+        'PowrotSerwisTable
+        '
+        Me.PowrotSerwisTable.AllowUserToAddRows = False
+        Me.PowrotSerwisTable.AllowUserToDeleteRows = False
+        Me.PowrotSerwisTable.AllowUserToOrderColumns = True
+        Me.PowrotSerwisTable.AutoGenerateContextFilters = True
+        Me.PowrotSerwisTable.BackgroundColor = System.Drawing.Color.LightSlateGray
+        Me.PowrotSerwisTable.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.PowrotSerwisTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.PowrotSerwisTable.DateWithTime = False
+        Me.PowrotSerwisTable.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PowrotSerwisTable.Location = New System.Drawing.Point(535, 2)
+        Me.PowrotSerwisTable.Name = "PowrotSerwisTable"
+        Me.PowrotSerwisTable.RowHeadersWidth = 51
+        Me.PowrotSerwisTable.RowTemplate.Height = 24
+        Me.PowrotSerwisTable.Size = New System.Drawing.Size(2511, 1254)
+        Me.PowrotSerwisTable.TabIndex = 4
+        Me.PowrotSerwisTable.TimeFilter = False
+        '
+        'PowrotSerwisPanel
+        '
+        Me.PowrotSerwisPanel.BackColor = System.Drawing.Color.LightSlateGray
+        Me.PowrotSerwisPanel.Controls.Add(Me.PowrotSerwisNrFaktury)
+        Me.PowrotSerwisPanel.Controls.Add(Me.Label51)
+        Me.PowrotSerwisPanel.Controls.Add(Me.Label47)
+        Me.PowrotSerwisPanel.Controls.Add(Me.PowrotSerwisStawka)
+        Me.PowrotSerwisPanel.Controls.Add(Me.Label46)
+        Me.PowrotSerwisPanel.Controls.Add(Me.PowrotSerwisUwagi)
+        Me.PowrotSerwisPanel.Controls.Add(Me.PowrotSerwisIdNarzedzia)
+        Me.PowrotSerwisPanel.Controls.Add(Me.LicznikPowrotSerwis)
+        Me.PowrotSerwisPanel.Controls.Add(Me.PowrotSerwisBtn)
+        Me.PowrotSerwisPanel.Controls.Add(Me.ErrLblPowrotSerwis)
+        Me.PowrotSerwisPanel.Controls.Add(Me.Label52)
+        Me.PowrotSerwisPanel.Dock = System.Windows.Forms.DockStyle.Left
+        Me.PowrotSerwisPanel.Location = New System.Drawing.Point(3, 2)
+        Me.PowrotSerwisPanel.Margin = New System.Windows.Forms.Padding(4)
+        Me.PowrotSerwisPanel.Name = "PowrotSerwisPanel"
+        Me.PowrotSerwisPanel.Size = New System.Drawing.Size(532, 1254)
+        Me.PowrotSerwisPanel.TabIndex = 3
+        '
+        'PowrotSerwisNrFaktury
+        '
+        Me.PowrotSerwisNrFaktury.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.PowrotSerwisNrFaktury.FormattingEnabled = True
+        Me.PowrotSerwisNrFaktury.Location = New System.Drawing.Point(190, 36)
+        Me.PowrotSerwisNrFaktury.Margin = New System.Windows.Forms.Padding(4)
+        Me.PowrotSerwisNrFaktury.Name = "PowrotSerwisNrFaktury"
+        Me.PowrotSerwisNrFaktury.Size = New System.Drawing.Size(325, 24)
+        Me.PowrotSerwisNrFaktury.TabIndex = 18
+        '
+        'Label51
+        '
+        Me.Label51.AutoSize = True
+        Me.Label51.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.Label51.Location = New System.Drawing.Point(27, 36)
+        Me.Label51.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label51.Name = "Label51"
+        Me.Label51.Size = New System.Drawing.Size(68, 17)
+        Me.Label51.TabIndex = 17
+        Me.Label51.Text = "Faktura:"
+        '
+        'Label47
+        '
+        Me.Label47.AutoSize = True
+        Me.Label47.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.Label47.Location = New System.Drawing.Point(27, 67)
+        Me.Label47.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label47.Name = "Label47"
+        Me.Label47.Size = New System.Drawing.Size(64, 17)
+        Me.Label47.TabIndex = 16
+        Me.Label47.Text = "Stawka:"
+        '
+        'PowrotSerwisStawka
+        '
+        Me.PowrotSerwisStawka.Location = New System.Drawing.Point(190, 67)
+        Me.PowrotSerwisStawka.Name = "PowrotSerwisStawka"
+        Me.PowrotSerwisStawka.Size = New System.Drawing.Size(325, 22)
+        Me.PowrotSerwisStawka.TabIndex = 15
+        '
+        'Label46
+        '
+        Me.Label46.AutoSize = True
+        Me.Label46.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.Label46.Location = New System.Drawing.Point(27, 96)
+        Me.Label46.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label46.Name = "Label46"
+        Me.Label46.Size = New System.Drawing.Size(56, 17)
+        Me.Label46.TabIndex = 14
+        Me.Label46.Text = "Uwagi:"
+        '
+        'PowrotSerwisUwagi
+        '
+        Me.PowrotSerwisUwagi.Location = New System.Drawing.Point(190, 96)
+        Me.PowrotSerwisUwagi.Name = "PowrotSerwisUwagi"
+        Me.PowrotSerwisUwagi.Size = New System.Drawing.Size(325, 22)
+        Me.PowrotSerwisUwagi.TabIndex = 13
+        '
+        'PowrotSerwisIdNarzedzia
+        '
+        Me.PowrotSerwisIdNarzedzia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.PowrotSerwisIdNarzedzia.FormattingEnabled = True
+        Me.PowrotSerwisIdNarzedzia.Location = New System.Drawing.Point(190, 4)
+        Me.PowrotSerwisIdNarzedzia.Margin = New System.Windows.Forms.Padding(4)
+        Me.PowrotSerwisIdNarzedzia.Name = "PowrotSerwisIdNarzedzia"
+        Me.PowrotSerwisIdNarzedzia.Size = New System.Drawing.Size(325, 24)
+        Me.PowrotSerwisIdNarzedzia.TabIndex = 12
+        '
+        'LicznikPowrotSerwis
+        '
+        Me.LicznikPowrotSerwis.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.LicznikPowrotSerwis.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.LicznikPowrotSerwis.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.LicznikPowrotSerwis.Location = New System.Drawing.Point(0, 1199)
+        Me.LicznikPowrotSerwis.Name = "LicznikPowrotSerwis"
+        Me.LicznikPowrotSerwis.Size = New System.Drawing.Size(532, 55)
+        Me.LicznikPowrotSerwis.TabIndex = 8
+        Me.LicznikPowrotSerwis.Text = "Licznik narzędzia:"
+        Me.LicznikPowrotSerwis.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'PowrotSerwisBtn
+        '
+        Me.PowrotSerwisBtn.BackColor = System.Drawing.Color.RoyalBlue
+        Me.PowrotSerwisBtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PowrotSerwisBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.PowrotSerwisBtn.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.PowrotSerwisBtn.Location = New System.Drawing.Point(30, 125)
+        Me.PowrotSerwisBtn.Margin = New System.Windows.Forms.Padding(4)
+        Me.PowrotSerwisBtn.Name = "PowrotSerwisBtn"
+        Me.PowrotSerwisBtn.Size = New System.Drawing.Size(485, 52)
+        Me.PowrotSerwisBtn.TabIndex = 6
+        Me.PowrotSerwisBtn.Text = "Powrót"
+        Me.PowrotSerwisBtn.UseVisualStyleBackColor = False
+        '
+        'ErrLblPowrotSerwis
+        '
+        Me.ErrLblPowrotSerwis.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.ErrLblPowrotSerwis.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
+        Me.ErrLblPowrotSerwis.ForeColor = System.Drawing.Color.Black
+        Me.ErrLblPowrotSerwis.Location = New System.Drawing.Point(4, 181)
+        Me.ErrLblPowrotSerwis.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.ErrLblPowrotSerwis.Name = "ErrLblPowrotSerwis"
+        Me.ErrLblPowrotSerwis.Size = New System.Drawing.Size(511, 345)
+        Me.ErrLblPowrotSerwis.TabIndex = 11
+        Me.ErrLblPowrotSerwis.Text = "ErrLabel"
+        Me.ErrLblPowrotSerwis.Visible = False
+        '
+        'Label52
+        '
+        Me.Label52.AutoSize = True
+        Me.Label52.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.Label52.Location = New System.Drawing.Point(27, 4)
+        Me.Label52.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label52.Name = "Label52"
+        Me.Label52.Size = New System.Drawing.Size(102, 17)
+        Me.Label52.TabIndex = 4
+        Me.Label52.Text = "Id narzędzia:"
         '
         'OddajNaSerwis
         '
         Me.OddajNaSerwis.BackColor = System.Drawing.Color.LightSlateGray
+        Me.OddajNaSerwis.Controls.Add(Me.SerwisOddajTabela)
+        Me.OddajNaSerwis.Controls.Add(Me.WydajPanel)
         Me.OddajNaSerwis.Location = New System.Drawing.Point(4, 25)
         Me.OddajNaSerwis.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.OddajNaSerwis.Name = "OddajNaSerwis"
         Me.OddajNaSerwis.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.OddajNaSerwis.Size = New System.Drawing.Size(1233, 656)
+        Me.OddajNaSerwis.Size = New System.Drawing.Size(3049, 1258)
         Me.OddajNaSerwis.TabIndex = 8
         Me.OddajNaSerwis.Text = "Oddaj na serwis"
+        '
+        'SerwisOddajTabela
+        '
+        Me.SerwisOddajTabela.AllowUserToAddRows = False
+        Me.SerwisOddajTabela.AllowUserToDeleteRows = False
+        Me.SerwisOddajTabela.AllowUserToOrderColumns = True
+        Me.SerwisOddajTabela.AutoGenerateContextFilters = True
+        Me.SerwisOddajTabela.BackgroundColor = System.Drawing.Color.LightSlateGray
+        Me.SerwisOddajTabela.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.SerwisOddajTabela.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.SerwisOddajTabela.DateWithTime = False
+        Me.SerwisOddajTabela.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SerwisOddajTabela.Location = New System.Drawing.Point(527, 2)
+        Me.SerwisOddajTabela.Name = "SerwisOddajTabela"
+        Me.SerwisOddajTabela.ReadOnly = True
+        Me.SerwisOddajTabela.RowHeadersWidth = 51
+        Me.SerwisOddajTabela.RowTemplate.Height = 24
+        Me.SerwisOddajTabela.Size = New System.Drawing.Size(2519, 1254)
+        Me.SerwisOddajTabela.TabIndex = 6
+        Me.SerwisOddajTabela.TimeFilter = False
+        '
+        'WydajPanel
+        '
+        Me.WydajPanel.BackColor = System.Drawing.Color.LightSlateGray
+        Me.WydajPanel.Controls.Add(Me.Label45)
+        Me.WydajPanel.Controls.Add(Me.UwagiOddajSerwis)
+        Me.WydajPanel.Controls.Add(Me.IdNarzedzieOddajSerwis)
+        Me.WydajPanel.Controls.Add(Me.LicznikOddajNaSerwis)
+        Me.WydajPanel.Controls.Add(Me.OddajSerwsiBtn)
+        Me.WydajPanel.Controls.Add(Me.ErrLblSerwisOddaj)
+        Me.WydajPanel.Controls.Add(Me.Label49)
+        Me.WydajPanel.Controls.Add(Me.IdSerwisOddaj)
+        Me.WydajPanel.Controls.Add(Me.Label50)
+        Me.WydajPanel.Dock = System.Windows.Forms.DockStyle.Left
+        Me.WydajPanel.Location = New System.Drawing.Point(3, 2)
+        Me.WydajPanel.Margin = New System.Windows.Forms.Padding(4)
+        Me.WydajPanel.Name = "WydajPanel"
+        Me.WydajPanel.Size = New System.Drawing.Size(524, 1254)
+        Me.WydajPanel.TabIndex = 2
+        '
+        'Label45
+        '
+        Me.Label45.AutoSize = True
+        Me.Label45.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.Label45.Location = New System.Drawing.Point(25, 67)
+        Me.Label45.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label45.Name = "Label45"
+        Me.Label45.Size = New System.Drawing.Size(56, 17)
+        Me.Label45.TabIndex = 14
+        Me.Label45.Text = "Uwagi:"
+        '
+        'UwagiOddajSerwis
+        '
+        Me.UwagiOddajSerwis.Location = New System.Drawing.Point(187, 67)
+        Me.UwagiOddajSerwis.Name = "UwagiOddajSerwis"
+        Me.UwagiOddajSerwis.Size = New System.Drawing.Size(325, 22)
+        Me.UwagiOddajSerwis.TabIndex = 13
+        '
+        'IdNarzedzieOddajSerwis
+        '
+        Me.IdNarzedzieOddajSerwis.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.IdNarzedzieOddajSerwis.FormattingEnabled = True
+        Me.IdNarzedzieOddajSerwis.Location = New System.Drawing.Point(187, 36)
+        Me.IdNarzedzieOddajSerwis.Margin = New System.Windows.Forms.Padding(4)
+        Me.IdNarzedzieOddajSerwis.Name = "IdNarzedzieOddajSerwis"
+        Me.IdNarzedzieOddajSerwis.Size = New System.Drawing.Size(325, 24)
+        Me.IdNarzedzieOddajSerwis.TabIndex = 12
+        '
+        'LicznikOddajNaSerwis
+        '
+        Me.LicznikOddajNaSerwis.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.LicznikOddajNaSerwis.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.LicznikOddajNaSerwis.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.LicznikOddajNaSerwis.Location = New System.Drawing.Point(0, 1159)
+        Me.LicznikOddajNaSerwis.Name = "LicznikOddajNaSerwis"
+        Me.LicznikOddajNaSerwis.Size = New System.Drawing.Size(524, 95)
+        Me.LicznikOddajNaSerwis.TabIndex = 8
+        Me.LicznikOddajNaSerwis.Text = "Licznik oddaj serwis:"
+        Me.LicznikOddajNaSerwis.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'OddajSerwsiBtn
+        '
+        Me.OddajSerwsiBtn.BackColor = System.Drawing.Color.RoyalBlue
+        Me.OddajSerwsiBtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.OddajSerwsiBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.OddajSerwsiBtn.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.OddajSerwsiBtn.Location = New System.Drawing.Point(27, 113)
+        Me.OddajSerwsiBtn.Margin = New System.Windows.Forms.Padding(4)
+        Me.OddajSerwsiBtn.Name = "OddajSerwsiBtn"
+        Me.OddajSerwsiBtn.Size = New System.Drawing.Size(485, 52)
+        Me.OddajSerwsiBtn.TabIndex = 6
+        Me.OddajSerwsiBtn.Text = "Oddaj na serwis"
+        Me.OddajSerwsiBtn.UseVisualStyleBackColor = False
+        '
+        'ErrLblSerwisOddaj
+        '
+        Me.ErrLblSerwisOddaj.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.ErrLblSerwisOddaj.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
+        Me.ErrLblSerwisOddaj.ForeColor = System.Drawing.Color.Black
+        Me.ErrLblSerwisOddaj.Location = New System.Drawing.Point(4, 169)
+        Me.ErrLblSerwisOddaj.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.ErrLblSerwisOddaj.Name = "ErrLblSerwisOddaj"
+        Me.ErrLblSerwisOddaj.Size = New System.Drawing.Size(511, 345)
+        Me.ErrLblSerwisOddaj.TabIndex = 11
+        Me.ErrLblSerwisOddaj.Text = "ErrLabel"
+        Me.ErrLblSerwisOddaj.Visible = False
+        '
+        'Label49
+        '
+        Me.Label49.AutoSize = True
+        Me.Label49.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.Label49.Location = New System.Drawing.Point(25, 4)
+        Me.Label49.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label49.Name = "Label49"
+        Me.Label49.Size = New System.Drawing.Size(76, 17)
+        Me.Label49.TabIndex = 10
+        Me.Label49.Text = "Id serwis:"
+        '
+        'IdSerwisOddaj
+        '
+        Me.IdSerwisOddaj.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.IdSerwisOddaj.FormattingEnabled = True
+        Me.IdSerwisOddaj.Location = New System.Drawing.Point(187, 4)
+        Me.IdSerwisOddaj.Margin = New System.Windows.Forms.Padding(4)
+        Me.IdSerwisOddaj.Name = "IdSerwisOddaj"
+        Me.IdSerwisOddaj.Size = New System.Drawing.Size(325, 24)
+        Me.IdSerwisOddaj.TabIndex = 0
+        '
+        'Label50
+        '
+        Me.Label50.AutoSize = True
+        Me.Label50.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.Label50.Location = New System.Drawing.Point(24, 36)
+        Me.Label50.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label50.Name = "Label50"
+        Me.Label50.Size = New System.Drawing.Size(102, 17)
+        Me.Label50.TabIndex = 4
+        Me.Label50.Text = "Id narzędzia:"
         '
         'StanMagazynu
         '
         Me.StanMagazynu.BackColor = System.Drawing.Color.LightSlateGray
+        Me.StanMagazynu.Controls.Add(Me.StanMagazynuTabela)
+        Me.StanMagazynu.Controls.Add(Me.PanelStanMagazynu)
         Me.StanMagazynu.Location = New System.Drawing.Point(4, 25)
         Me.StanMagazynu.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.StanMagazynu.Name = "StanMagazynu"
         Me.StanMagazynu.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.StanMagazynu.Size = New System.Drawing.Size(1233, 656)
+        Me.StanMagazynu.Size = New System.Drawing.Size(3049, 1258)
         Me.StanMagazynu.TabIndex = 6
         Me.StanMagazynu.Text = "Stan magazynu"
+        '
+        'StanMagazynuTabela
+        '
+        Me.StanMagazynuTabela.AllowUserToAddRows = False
+        Me.StanMagazynuTabela.AllowUserToDeleteRows = False
+        Me.StanMagazynuTabela.AllowUserToOrderColumns = True
+        Me.StanMagazynuTabela.AutoGenerateContextFilters = True
+        Me.StanMagazynuTabela.BackgroundColor = System.Drawing.Color.LightSlateGray
+        Me.StanMagazynuTabela.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.StanMagazynuTabela.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.StanMagazynuTabela.DateWithTime = False
+        Me.StanMagazynuTabela.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.StanMagazynuTabela.Location = New System.Drawing.Point(312, 2)
+        Me.StanMagazynuTabela.Name = "StanMagazynuTabela"
+        Me.StanMagazynuTabela.ReadOnly = True
+        Me.StanMagazynuTabela.RowHeadersWidth = 51
+        Me.StanMagazynuTabela.RowTemplate.Height = 24
+        Me.StanMagazynuTabela.Size = New System.Drawing.Size(2734, 1254)
+        Me.StanMagazynuTabela.TabIndex = 8
+        Me.StanMagazynuTabela.TimeFilter = False
+        '
+        'PanelStanMagazynu
+        '
+        Me.PanelStanMagazynu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PanelStanMagazynu.Controls.Add(Me.LicznikStanMagazynu)
+        Me.PanelStanMagazynu.Controls.Add(Me.ErrLblStanMagazynu)
+        Me.PanelStanMagazynu.Dock = System.Windows.Forms.DockStyle.Left
+        Me.PanelStanMagazynu.Location = New System.Drawing.Point(3, 2)
+        Me.PanelStanMagazynu.Margin = New System.Windows.Forms.Padding(4)
+        Me.PanelStanMagazynu.Name = "PanelStanMagazynu"
+        Me.PanelStanMagazynu.Size = New System.Drawing.Size(309, 1254)
+        Me.PanelStanMagazynu.TabIndex = 7
+        '
+        'LicznikStanMagazynu
+        '
+        Me.LicznikStanMagazynu.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.LicznikStanMagazynu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.LicznikStanMagazynu.Location = New System.Drawing.Point(0, 1191)
+        Me.LicznikStanMagazynu.Name = "LicznikStanMagazynu"
+        Me.LicznikStanMagazynu.Size = New System.Drawing.Size(307, 61)
+        Me.LicznikStanMagazynu.TabIndex = 8
+        Me.LicznikStanMagazynu.Text = "Label7"
+        Me.LicznikStanMagazynu.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'ErrLblStanMagazynu
+        '
+        Me.ErrLblStanMagazynu.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.ErrLblStanMagazynu.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
+        Me.ErrLblStanMagazynu.ForeColor = System.Drawing.Color.Black
+        Me.ErrLblStanMagazynu.Location = New System.Drawing.Point(21, 206)
+        Me.ErrLblStanMagazynu.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.ErrLblStanMagazynu.Name = "ErrLblStanMagazynu"
+        Me.ErrLblStanMagazynu.Size = New System.Drawing.Size(282, 260)
+        Me.ErrLblStanMagazynu.TabIndex = 11
+        Me.ErrLblStanMagazynu.Text = "Komunikat:"
+        Me.ErrLblStanMagazynu.Visible = False
         '
         'DodajSerwis
         '
@@ -1652,7 +2080,7 @@ Partial Class form
         Me.DodajSerwis.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.DodajSerwis.Name = "DodajSerwis"
         Me.DodajSerwis.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.DodajSerwis.Size = New System.Drawing.Size(1233, 656)
+        Me.DodajSerwis.Size = New System.Drawing.Size(3049, 1258)
         Me.DodajSerwis.TabIndex = 5
         Me.DodajSerwis.Text = "Dodaj serwis"
         '
@@ -1672,7 +2100,7 @@ Partial Class form
         Me.TabelaDodajSerwis.ReadOnly = True
         Me.TabelaDodajSerwis.RowHeadersWidth = 51
         Me.TabelaDodajSerwis.RowTemplate.Height = 24
-        Me.TabelaDodajSerwis.Size = New System.Drawing.Size(694, 652)
+        Me.TabelaDodajSerwis.Size = New System.Drawing.Size(2510, 1254)
         Me.TabelaDodajSerwis.TabIndex = 7
         Me.TabelaDodajSerwis.TimeFilter = False
         '
@@ -1702,14 +2130,14 @@ Partial Class form
         Me.PanelDodajSerwis.Location = New System.Drawing.Point(3, 2)
         Me.PanelDodajSerwis.Margin = New System.Windows.Forms.Padding(4)
         Me.PanelDodajSerwis.Name = "PanelDodajSerwis"
-        Me.PanelDodajSerwis.Size = New System.Drawing.Size(533, 652)
+        Me.PanelDodajSerwis.Size = New System.Drawing.Size(533, 1254)
         Me.PanelDodajSerwis.TabIndex = 6
         '
         'LicznikDodajSerwis
         '
         Me.LicznikDodajSerwis.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.LicznikDodajSerwis.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.LicznikDodajSerwis.Location = New System.Drawing.Point(0, 589)
+        Me.LicznikDodajSerwis.Location = New System.Drawing.Point(0, 1191)
         Me.LicznikDodajSerwis.Name = "LicznikDodajSerwis"
         Me.LicznikDodajSerwis.Size = New System.Drawing.Size(531, 61)
         Me.LicznikDodajSerwis.TabIndex = 8
@@ -1916,7 +2344,7 @@ Partial Class form
         Me.DodajPracownika.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.DodajPracownika.Name = "DodajPracownika"
         Me.DodajPracownika.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.DodajPracownika.Size = New System.Drawing.Size(1233, 656)
+        Me.DodajPracownika.Size = New System.Drawing.Size(3049, 1258)
         Me.DodajPracownika.TabIndex = 4
         Me.DodajPracownika.Text = "Dodaj pracownika"
         '
@@ -1964,7 +2392,7 @@ Partial Class form
         DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption
         Me.TabelaDodajPracownika.RowsDefaultCellStyle = DataGridViewCellStyle4
         Me.TabelaDodajPracownika.RowTemplate.Height = 24
-        Me.TabelaDodajPracownika.Size = New System.Drawing.Size(707, 652)
+        Me.TabelaDodajPracownika.Size = New System.Drawing.Size(2523, 1254)
         Me.TabelaDodajPracownika.TabIndex = 12
         Me.TabelaDodajPracownika.TimeFilter = False
         '
@@ -1990,7 +2418,7 @@ Partial Class form
         Me.PanelDodajPracownika.Location = New System.Drawing.Point(3, 2)
         Me.PanelDodajPracownika.Margin = New System.Windows.Forms.Padding(4)
         Me.PanelDodajPracownika.Name = "PanelDodajPracownika"
-        Me.PanelDodajPracownika.Size = New System.Drawing.Size(520, 652)
+        Me.PanelDodajPracownika.Size = New System.Drawing.Size(520, 1254)
         Me.PanelDodajPracownika.TabIndex = 9
         '
         'DodajPracownikaImie
@@ -2007,7 +2435,7 @@ Partial Class form
         Me.LicznikDodajPracownika.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.LicznikDodajPracownika.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
         Me.LicznikDodajPracownika.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.LicznikDodajPracownika.Location = New System.Drawing.Point(0, 618)
+        Me.LicznikDodajPracownika.Location = New System.Drawing.Point(0, 1220)
         Me.LicznikDodajPracownika.Name = "LicznikDodajPracownika"
         Me.LicznikDodajPracownika.Size = New System.Drawing.Size(520, 34)
         Me.LicznikDodajPracownika.TabIndex = 11
@@ -2161,7 +2589,7 @@ Partial Class form
         Me.DodajNarzędzie.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.DodajNarzędzie.Name = "DodajNarzędzie"
         Me.DodajNarzędzie.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.DodajNarzędzie.Size = New System.Drawing.Size(1233, 656)
+        Me.DodajNarzędzie.Size = New System.Drawing.Size(3049, 1258)
         Me.DodajNarzędzie.TabIndex = 3
         Me.DodajNarzędzie.Text = "Dodaj narzędzie"
         '
@@ -2181,7 +2609,7 @@ Partial Class form
         Me.TabelaDodajNarzędzie.ReadOnly = True
         Me.TabelaDodajNarzędzie.RowHeadersWidth = 51
         Me.TabelaDodajNarzędzie.RowTemplate.Height = 24
-        Me.TabelaDodajNarzędzie.Size = New System.Drawing.Size(708, 652)
+        Me.TabelaDodajNarzędzie.Size = New System.Drawing.Size(2524, 1254)
         Me.TabelaDodajNarzędzie.TabIndex = 4
         Me.TabelaDodajNarzędzie.TimeFilter = False
         '
@@ -2207,7 +2635,7 @@ Partial Class form
         Me.PanelNarzędzie.Location = New System.Drawing.Point(3, 2)
         Me.PanelNarzędzie.Margin = New System.Windows.Forms.Padding(4)
         Me.PanelNarzędzie.Name = "PanelNarzędzie"
-        Me.PanelNarzędzie.Size = New System.Drawing.Size(519, 652)
+        Me.PanelNarzędzie.Size = New System.Drawing.Size(519, 1254)
         Me.PanelNarzędzie.TabIndex = 0
         '
         'DodajNarzędzieTyp
@@ -2225,7 +2653,7 @@ Partial Class form
         Me.LicznikNarzędzia.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.LicznikNarzędzia.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
         Me.LicznikNarzędzia.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.LicznikNarzędzia.Location = New System.Drawing.Point(0, 613)
+        Me.LicznikNarzędzia.Location = New System.Drawing.Point(0, 1215)
         Me.LicznikNarzędzia.Name = "LicznikNarzędzia"
         Me.LicznikNarzędzia.Size = New System.Drawing.Size(519, 39)
         Me.LicznikNarzędzia.TabIndex = 8
@@ -2377,7 +2805,7 @@ Partial Class form
         Me.MojeWypożyczenia.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.MojeWypożyczenia.Name = "MojeWypożyczenia"
         Me.MojeWypożyczenia.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.MojeWypożyczenia.Size = New System.Drawing.Size(1233, 656)
+        Me.MojeWypożyczenia.Size = New System.Drawing.Size(3049, 1258)
         Me.MojeWypożyczenia.TabIndex = 2
         Me.MojeWypożyczenia.Text = "Wypożyczenia"
         '
@@ -2397,7 +2825,7 @@ Partial Class form
         Me.TabelaMojeWypo.ReadOnly = True
         Me.TabelaMojeWypo.RowHeadersWidth = 51
         Me.TabelaMojeWypo.RowTemplate.Height = 24
-        Me.TabelaMojeWypo.Size = New System.Drawing.Size(695, 652)
+        Me.TabelaMojeWypo.Size = New System.Drawing.Size(2511, 1254)
         Me.TabelaMojeWypo.TabIndex = 6
         Me.TabelaMojeWypo.TimeFilter = False
         '
@@ -2414,7 +2842,7 @@ Partial Class form
         Me.Panel3.Location = New System.Drawing.Point(3, 2)
         Me.Panel3.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(532, 652)
+        Me.Panel3.Size = New System.Drawing.Size(532, 1254)
         Me.Panel3.TabIndex = 3
         '
         'ChckFiltrPracownika
@@ -2446,7 +2874,7 @@ Partial Class form
         Me.LicznikMojeWypo.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.LicznikMojeWypo.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
         Me.LicznikMojeWypo.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.LicznikMojeWypo.Location = New System.Drawing.Point(0, 597)
+        Me.LicznikMojeWypo.Location = New System.Drawing.Point(0, 1199)
         Me.LicznikMojeWypo.Name = "LicznikMojeWypo"
         Me.LicznikMojeWypo.Size = New System.Drawing.Size(532, 55)
         Me.LicznikMojeWypo.TabIndex = 8
@@ -2500,7 +2928,7 @@ Partial Class form
         Me.ZwróćTab.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ZwróćTab.Name = "ZwróćTab"
         Me.ZwróćTab.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.ZwróćTab.Size = New System.Drawing.Size(1233, 656)
+        Me.ZwróćTab.Size = New System.Drawing.Size(3049, 1258)
         Me.ZwróćTab.TabIndex = 1
         Me.ZwróćTab.Text = "Zwróć"
         '
@@ -2520,7 +2948,7 @@ Partial Class form
         Me.ZwróćTabela.ReadOnly = True
         Me.ZwróćTabela.RowHeadersWidth = 51
         Me.ZwróćTabela.RowTemplate.Height = 24
-        Me.ZwróćTabela.Size = New System.Drawing.Size(695, 652)
+        Me.ZwróćTabela.Size = New System.Drawing.Size(2511, 1254)
         Me.ZwróćTabela.TabIndex = 6
         Me.ZwróćTabela.TimeFilter = False
         '
@@ -2538,7 +2966,7 @@ Partial Class form
         Me.ZwróćPanel.Location = New System.Drawing.Point(3, 2)
         Me.ZwróćPanel.Margin = New System.Windows.Forms.Padding(4)
         Me.ZwróćPanel.Name = "ZwróćPanel"
-        Me.ZwróćPanel.Size = New System.Drawing.Size(532, 652)
+        Me.ZwróćPanel.Size = New System.Drawing.Size(532, 1254)
         Me.ZwróćPanel.TabIndex = 2
         '
         'Label36
@@ -2574,7 +3002,7 @@ Partial Class form
         Me.LicznikZwróc.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.LicznikZwróc.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
         Me.LicznikZwróc.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.LicznikZwróc.Location = New System.Drawing.Point(0, 597)
+        Me.LicznikZwróc.Location = New System.Drawing.Point(0, 1199)
         Me.LicznikZwróc.Name = "LicznikZwróc"
         Me.LicznikZwróc.Size = New System.Drawing.Size(532, 55)
         Me.LicznikZwróc.TabIndex = 8
@@ -2628,7 +3056,7 @@ Partial Class form
         Me.WypożyczTab.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.WypożyczTab.Name = "WypożyczTab"
         Me.WypożyczTab.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.WypożyczTab.Size = New System.Drawing.Size(1233, 656)
+        Me.WypożyczTab.Size = New System.Drawing.Size(3049, 1258)
         Me.WypożyczTab.TabIndex = 0
         Me.WypożyczTab.Text = "Wypożycz"
         '
@@ -2643,12 +3071,12 @@ Partial Class form
         Me.WypożyczTabela.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.WypożyczTabela.DateWithTime = False
         Me.WypożyczTabela.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.WypożyczTabela.Location = New System.Drawing.Point(527, 2)
+        Me.WypożyczTabela.Location = New System.Drawing.Point(658, 2)
         Me.WypożyczTabela.Name = "WypożyczTabela"
         Me.WypożyczTabela.ReadOnly = True
         Me.WypożyczTabela.RowHeadersWidth = 51
         Me.WypożyczTabela.RowTemplate.Height = 24
-        Me.WypożyczTabela.Size = New System.Drawing.Size(703, 652)
+        Me.WypożyczTabela.Size = New System.Drawing.Size(2388, 1254)
         Me.WypożyczTabela.TabIndex = 5
         Me.WypożyczTabela.TimeFilter = False
         '
@@ -2668,7 +3096,7 @@ Partial Class form
         Me.WypożyczPanel.Location = New System.Drawing.Point(3, 2)
         Me.WypożyczPanel.Margin = New System.Windows.Forms.Padding(4)
         Me.WypożyczPanel.Name = "WypożyczPanel"
-        Me.WypożyczPanel.Size = New System.Drawing.Size(524, 652)
+        Me.WypożyczPanel.Size = New System.Drawing.Size(655, 1254)
         Me.WypożyczPanel.TabIndex = 1
         '
         'UwagiLblWypożycz
@@ -2704,9 +3132,9 @@ Partial Class form
         Me.LicznikWypożycz.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.LicznikWypożycz.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
         Me.LicznikWypożycz.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.LicznikWypożycz.Location = New System.Drawing.Point(0, 557)
+        Me.LicznikWypożycz.Location = New System.Drawing.Point(0, 1021)
         Me.LicznikWypożycz.Name = "LicznikWypożycz"
-        Me.LicznikWypożycz.Size = New System.Drawing.Size(524, 95)
+        Me.LicznikWypożycz.Size = New System.Drawing.Size(655, 233)
         Me.LicznikWypożycz.TabIndex = 8
         Me.LicznikWypożycz.Text = "Licznik narzędzia:"
         Me.LicznikWypożycz.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -2770,51 +3198,111 @@ Partial Class form
         Me.IdNarzedziaWypożyczLbl.TabIndex = 4
         Me.IdNarzedziaWypożyczLbl.Text = "Id narzędzia:"
         '
-        'TabControl
+        'MyTab
         '
-        Me.TabControl.Controls.Add(Me.WypożyczTab)
-        Me.TabControl.Controls.Add(Me.ZwróćTab)
-        Me.TabControl.Controls.Add(Me.MojeWypożyczenia)
-        Me.TabControl.Controls.Add(Me.DodajNarzędzie)
-        Me.TabControl.Controls.Add(Me.DodajPracownika)
-        Me.TabControl.Controls.Add(Me.DodajSerwis)
-        Me.TabControl.Controls.Add(Me.StanMagazynu)
-        Me.TabControl.Controls.Add(Me.OddajNaSerwis)
-        Me.TabControl.Controls.Add(Me.PowrótZserwisu)
-        Me.TabControl.Controls.Add(Me.DodajDostawce)
-        Me.TabControl.Controls.Add(Me.HistoriaNarzędzia)
-        Me.TabControl.Controls.Add(Me.DodajFakture)
-        Me.TabControl.Controls.Add(Me.DodajFaktureSerwis)
-        Me.TabControl.Controls.Add(Me.TypNarzedzia)
-        Me.TabControl.Controls.Add(Me.Edytuj)
-        Me.TabControl.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TabControl.Location = New System.Drawing.Point(0, 38)
-        Me.TabControl.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.TabControl.MinimumSize = New System.Drawing.Size(1067, 685)
-        Me.TabControl.Name = "TabControl"
-        Me.TabControl.SelectedIndex = 0
-        Me.TabControl.Size = New System.Drawing.Size(1241, 685)
-        Me.TabControl.TabIndex = 2
+        Me.MyTab.Controls.Add(Me.WypożyczTab)
+        Me.MyTab.Controls.Add(Me.ZwróćTab)
+        Me.MyTab.Controls.Add(Me.MojeWypożyczenia)
+        Me.MyTab.Controls.Add(Me.DodajNarzędzie)
+        Me.MyTab.Controls.Add(Me.DodajPracownika)
+        Me.MyTab.Controls.Add(Me.DodajSerwis)
+        Me.MyTab.Controls.Add(Me.StanMagazynu)
+        Me.MyTab.Controls.Add(Me.OddajNaSerwis)
+        Me.MyTab.Controls.Add(Me.PowrótZserwisu)
+        Me.MyTab.Controls.Add(Me.DodajDostawce)
+        Me.MyTab.Controls.Add(Me.HistoriaNarzędzia)
+        Me.MyTab.Controls.Add(Me.DodajFakture)
+        Me.MyTab.Controls.Add(Me.DodajFaktureSerwis)
+        Me.MyTab.Controls.Add(Me.TypNarzedzia)
+        Me.MyTab.Controls.Add(Me.Edytuj)
+        Me.MyTab.Controls.Add(Me.PodsumowanieNarzędzi)
+        Me.MyTab.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.MyTab.Location = New System.Drawing.Point(0, 38)
+        Me.MyTab.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.MyTab.MinimumSize = New System.Drawing.Size(1067, 685)
+        Me.MyTab.Name = "MyTab"
+        Me.MyTab.SelectedIndex = 0
+        Me.MyTab.Size = New System.Drawing.Size(3057, 1287)
+        Me.MyTab.TabIndex = 2
         '
-        'form
+        'PodsumowanieNarzędzi
+        '
+        Me.PodsumowanieNarzędzi.BackColor = System.Drawing.Color.LightSlateGray
+        Me.PodsumowanieNarzędzi.Controls.Add(Me.PodsumowanieNarzędziTabela)
+        Me.PodsumowanieNarzędzi.Controls.Add(Me.Panel4)
+        Me.PodsumowanieNarzędzi.Location = New System.Drawing.Point(4, 25)
+        Me.PodsumowanieNarzędzi.Name = "PodsumowanieNarzędzi"
+        Me.PodsumowanieNarzędzi.Padding = New System.Windows.Forms.Padding(3)
+        Me.PodsumowanieNarzędzi.Size = New System.Drawing.Size(3049, 1258)
+        Me.PodsumowanieNarzędzi.TabIndex = 16
+        Me.PodsumowanieNarzędzi.Text = "Podsumowanie narzędzia"
+        '
+        'PodsumowanieNarzędziTabela
+        '
+        Me.PodsumowanieNarzędziTabela.AllowUserToAddRows = False
+        Me.PodsumowanieNarzędziTabela.AllowUserToDeleteRows = False
+        Me.PodsumowanieNarzędziTabela.AllowUserToOrderColumns = True
+        Me.PodsumowanieNarzędziTabela.AutoGenerateContextFilters = True
+        Me.PodsumowanieNarzędziTabela.BackgroundColor = System.Drawing.Color.LightSlateGray
+        Me.PodsumowanieNarzędziTabela.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.PodsumowanieNarzędziTabela.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.PodsumowanieNarzędziTabela.DateWithTime = False
+        Me.PodsumowanieNarzędziTabela.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PodsumowanieNarzędziTabela.Location = New System.Drawing.Point(251, 3)
+        Me.PodsumowanieNarzędziTabela.Name = "PodsumowanieNarzędziTabela"
+        Me.PodsumowanieNarzędziTabela.RowHeadersWidth = 51
+        Me.PodsumowanieNarzędziTabela.RowTemplate.Height = 24
+        Me.PodsumowanieNarzędziTabela.Size = New System.Drawing.Size(2795, 1252)
+        Me.PodsumowanieNarzędziTabela.TabIndex = 5
+        Me.PodsumowanieNarzędziTabela.TimeFilter = False
+        '
+        'Panel4
+        '
+        Me.Panel4.BackColor = System.Drawing.Color.LightSlateGray
+        Me.Panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Panel4.Controls.Add(Me.PodsumowanieLicznik)
+        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Panel4.Location = New System.Drawing.Point(3, 3)
+        Me.Panel4.Margin = New System.Windows.Forms.Padding(4)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(248, 1252)
+        Me.Panel4.TabIndex = 3
+        '
+        'PodsumowanieLicznik
+        '
+        Me.PodsumowanieLicznik.BackColor = System.Drawing.Color.LightSlateGray
+        Me.PodsumowanieLicznik.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.PodsumowanieLicznik.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.PodsumowanieLicznik.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.PodsumowanieLicznik.Location = New System.Drawing.Point(0, 1203)
+        Me.PodsumowanieLicznik.Name = "PodsumowanieLicznik"
+        Me.PodsumowanieLicznik.Size = New System.Drawing.Size(248, 49)
+        Me.PodsumowanieLicznik.TabIndex = 5
+        Me.PodsumowanieLicznik.Text = "Label7"
+        Me.PodsumowanieLicznik.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'UzytkownicyBindingSource1
+        '
+        Me.UzytkownicyBindingSource1.DataMember = "uzytkownicy"
+        '
+        'Menu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.MidnightBlue
-        Me.ClientSize = New System.Drawing.Size(1241, 647)
-        Me.Controls.Add(Me.TabControl)
+        Me.ClientSize = New System.Drawing.Size(3057, 1325)
+        Me.Controls.Add(Me.MyTab)
         Me.Controls.Add(Me.MenuStrip2)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.MinimumSize = New System.Drawing.Size(1067, 685)
-        Me.Name = "form"
+        Me.Name = "Menu"
         Me.Text = "Narzędziownia - Menu"
         Me.MenuStrip2.ResumeLayout(False)
         Me.MenuStrip2.PerformLayout()
         CType(Me.Narzedziownia2DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Narzedziownia2DataSet5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Narzedziownia2DataSet4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.UzytkownicyBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NarzedziaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Narzedziownia2DataSet2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Narzedziownia2DataSet7, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2839,10 +3327,25 @@ Partial Class form
         CType(Me.TabelaDodajFakture, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelDodajFakture.ResumeLayout(False)
         Me.PanelDodajFakture.PerformLayout()
+        Me.HistoriaNarzędzia.ResumeLayout(False)
+        CType(Me.HistoriaNarzędziaTabela, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel5.ResumeLayout(False)
+        Me.Panel5.PerformLayout()
         Me.DodajDostawce.ResumeLayout(False)
         CType(Me.TabelaDodajDostawce, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelDostawca.ResumeLayout(False)
         Me.PanelDostawca.PerformLayout()
+        Me.PowrótZserwisu.ResumeLayout(False)
+        CType(Me.PowrotSerwisTable, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PowrotSerwisPanel.ResumeLayout(False)
+        Me.PowrotSerwisPanel.PerformLayout()
+        Me.OddajNaSerwis.ResumeLayout(False)
+        CType(Me.SerwisOddajTabela, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.WydajPanel.ResumeLayout(False)
+        Me.WydajPanel.PerformLayout()
+        Me.StanMagazynu.ResumeLayout(False)
+        CType(Me.StanMagazynuTabela, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanelStanMagazynu.ResumeLayout(False)
         Me.DodajSerwis.ResumeLayout(False)
         CType(Me.TabelaDodajSerwis, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelDodajSerwis.ResumeLayout(False)
@@ -2867,7 +3370,11 @@ Partial Class form
         CType(Me.WypożyczTabela, System.ComponentModel.ISupportInitialize).EndInit()
         Me.WypożyczPanel.ResumeLayout(False)
         Me.WypożyczPanel.PerformLayout()
-        Me.TabControl.ResumeLayout(False)
+        Me.MyTab.ResumeLayout(False)
+        Me.PodsumowanieNarzędzi.ResumeLayout(False)
+        CType(Me.PodsumowanieNarzędziTabela, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel4.ResumeLayout(False)
+        CType(Me.UzytkownicyBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -2910,19 +3417,7 @@ Partial Class form
     '    Friend WithEvents NarzedziaBinding As BindingSource
     Friend WithEvents DostawcaBinding As BindingSource
     Friend WithEvents FakturaSerwisMenu As ToolStripMenuItem
-    Friend WithEvents DodajNarzedzieMenu As ToolStripMenuItem
-    Friend WithEvents EdytujNarzedzieMenu As ToolStripMenuItem
     Friend WithEvents TypNarzędziaToolStripMenu As ToolStripMenuItem
-    Friend WithEvents DodajPracownikMenu As ToolStripMenuItem
-    Friend WithEvents EdytujPracownikMenu As ToolStripMenuItem
-    Friend WithEvents DodajToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents EdytujToolStripMenuItem2 As ToolStripMenuItem
-    Friend WithEvents EdytujSerwisMenu As ToolStripMenuItem
-    Friend WithEvents DodajSerwisMenu As ToolStripMenuItem
-    Friend WithEvents DostawcaDodajMenu As ToolStripMenuItem
-    Friend WithEvents EdytujDostawceMenu As ToolStripMenuItem
-    Friend WithEvents DodajFaktureSerwisMenu As ToolStripMenuItem
-    Friend WithEvents EdytujFaktureSerwisMenu As ToolStripMenuItem
     Friend WithEvents DodajTypNarzedziaMenu As ToolStripMenuItem
     Friend WithEvents EdytujTypNarzedziaMenu As ToolStripMenuItem
     Friend WithEvents Narzedziownia2DataSet6 As Narzedziownia2DataSet6
@@ -3101,5 +3596,45 @@ Partial Class form
     Friend WithEvents IDPracownikaWypożyczLbl As Label
     Friend WithEvents IdPracownikaWypozycz As ComboBox
     Friend WithEvents IdNarzedziaWypożyczLbl As Label
-    Friend WithEvents TabControl As TabControl
+    Friend WithEvents MyTab As TabControl
+    Friend WithEvents SerwisOddajTabela As ADGV.AdvancedDataGridView
+    Friend WithEvents WydajPanel As Panel
+    Friend WithEvents Label45 As Label
+    Friend WithEvents UwagiOddajSerwis As TextBox
+    Friend WithEvents IdNarzedzieOddajSerwis As ComboBox
+    Friend WithEvents LicznikOddajNaSerwis As Label
+    Friend WithEvents OddajSerwsiBtn As Button
+    Friend WithEvents ErrLblSerwisOddaj As Label
+    Friend WithEvents Label49 As Label
+    Friend WithEvents IdSerwisOddaj As ComboBox
+    Friend WithEvents Label50 As Label
+    Friend WithEvents PowrotSerwisPanel As Panel
+    Friend WithEvents Label46 As Label
+    Friend WithEvents PowrotSerwisUwagi As TextBox
+    Friend WithEvents PowrotSerwisIdNarzedzia As ComboBox
+    Friend WithEvents LicznikPowrotSerwis As Label
+    Friend WithEvents PowrotSerwisBtn As Button
+    Friend WithEvents ErrLblPowrotSerwis As Label
+    Friend WithEvents Label52 As Label
+    Friend WithEvents PowrotSerwisTable As ADGV.AdvancedDataGridView
+    Friend WithEvents PowrotSerwisNrFaktury As ComboBox
+    Friend WithEvents Label51 As Label
+    Friend WithEvents Label47 As Label
+    Friend WithEvents PowrotSerwisStawka As TextBox
+    Friend WithEvents PodsumowanieNarzędziaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PodsumowanieNarzędzi As TabPage
+    Friend WithEvents PodsumowanieNarzędziTabela As ADGV.AdvancedDataGridView
+    Friend WithEvents Panel4 As Panel
+    Friend WithEvents PodsumowanieLicznik As Label
+    Friend WithEvents HistoriaNarzędziaTabela As ADGV.AdvancedDataGridView
+    Friend WithEvents Panel5 As Panel
+    Friend WithEvents HistoriaNarzedziaID As ComboBox
+    Friend WithEvents LicznikHistoriaNarzędzia As Label
+    Friend WithEvents Button1 As Button
+    Friend WithEvents Label54 As Label
+    Friend WithEvents label As Label
+    Friend WithEvents StanMagazynuTabela As ADGV.AdvancedDataGridView
+    Friend WithEvents PanelStanMagazynu As Panel
+    Friend WithEvents LicznikStanMagazynu As Label
+    Friend WithEvents ErrLblStanMagazynu As Label
 End Class

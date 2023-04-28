@@ -1,7 +1,4 @@
-﻿
-
-
-Public Class form
+﻿Public Class Menu
     Public sql As New SQLServerConnection
     Public SqlDostawca As New SQLServerConnection
     Public SqlNarzędzie As New SQLServerConnection
@@ -23,11 +20,20 @@ Public Class form
     Dim TypNarzedziaKL As New MyDataGridSetting
     Dim WypozyczKL As New MyDataGridSetting
     Dim ZwrocKL As New MyDataGridSetting
+    Dim OddajSerwisKL As New MyDataGridSetting
     Dim MojeWypozyczeniaKL As New MyDataGridSetting
+    Dim OddajNaSerwisKL As New MyDataGridSetting
+    Dim PodsumowanieNarzędziaKL As New MyDataGridSetting
+    Dim HistoriaNarzędziaKL As New MyDataGridSetting
+    Dim StanMagazynuKL As New MyDataGridSetting
 
-    Public MyId As Integer = 14
-    Public MyLVL As Integer = 2
+    Public MyId As Integer = Logowanie.IDproperty
+    Public MyLVL As String = Logowanie.LvlProperty
 
+
+
+    Dim StringSqlHistoriaNarzędzia As String = "
+        select *  from HistoriaNarzedziaView"
 
     Dim StringSqlDostawca As String = "
         select ID, Nazwa, Telefon, Mail, Opiekun, Miasto, Adres, KodPocztowy, NIP, Aktywny
@@ -48,11 +54,14 @@ Public Class form
     Dim StringSqlSerwis As String = "
         Select ID, NazwaSerwisu, Telefon, Mail, Opiekun, Miasto, Adres, KodPocztowy, NIP, Aktywny 
         from serwis order by Id desc"
-    Dim StringSqlFakturySerwis As String = "
-        Select FakturySerwis.ID, NrFaktury, DataFaktury, serwis.NazwaSerwisu, serwis.NIP, Serwis.Miasto, TerminPłatności, FormaPłatności, FakturySerwis.Aktywny
+    Dim StringSqlFakturySerwis As String =
+    "  Select FakturySerwis.ID, NrFaktury, DataFaktury, serwis.NazwaSerwisu, serwis.NIP, Serwis.Miasto, TerminPłatności, FormaPłatności, FakturySerwis.Aktywny, sum(DetaleSerwisFv.Cena) as Stawka
         from FakturySerwis 
         left join Serwis
         on SerwisID = serwis.ID
+		left join DetaleSerwisFv
+		on FakturySerwis.id = DetaleSerwisFv.FakturaSerwisID
+		group by FakturySerwis.ID, NrFaktury, DataFaktury, serwis.NazwaSerwisu, serwis.NIP, Serwis.Miasto, TerminPłatności, FormaPłatności, FakturySerwis.Aktywny
         order by Id desc"
     Dim StringSqlFaktury As String = "
 	    Select Faktury.ID, Faktury.NrFaktury, DataFaktury, Dostawca.Nazwa, Dostawca.NIP, Dostawca.Miasto, TerminPłatności, FormaPłatności, Faktury.Aktywny, SUM(DetaleFv.Cena) as Wartość
@@ -65,7 +74,16 @@ Public Class form
         order by Id desc"
     Dim StringSqlTypNarzedzia As String = "Select ID, Nazwa, Aktywny from TypNarzedzia order by Id desc"
     Dim StringSqlStanMagazynu As String = "SELECT [ID], [Model], [Nazwa], [NumerSeryjny], [Gwarancja] FROM [Narzedziownia2].[dbo].[StanMagazynu] order by Id desc"
-    Dim StringSqlDoZwrotu As String = "Select [ID], [IDpracownika], [IDnarzedzia], [dataWypożyczenia], [dataZwrotu], [uwagi] fROM [Narzedziownia2].[dbo].[wypozyczenia] where DataZwrotu IS NULL OR DataZwrotu = ''"
+    Dim StringSqlDoZwrotu As String = "Select [ID], [IDpracownika], [IDnarzedzia], [dataWypożyczenia], [dataZwrotu], [uwagi] fROM [Narzedziownia2].[dbo].[wypozyczenia] where (DataZwrotu IS NULL OR DataZwrotu = '') "
+    Dim StringSqlDoZwrotuSerwis As String = "  Select [WydaniaSerwis].[ID], [IDserwis], serwis.NazwaSerwisu, serwis.Miasto, [IDnarzedzia], narzedzia.Model, narzedzia.NumerSeryjny, TypNarzedzia.Nazwa [dataWydania], [dataZwrotu], [uwagi] 
+     fROM [Narzedziownia2].[dbo].[WydaniaSerwis] 
+     left join serwis
+     on [WydaniaSerwis].[IDserwis] = serwis.id
+     left join narzedzia
+     on [WydaniaSerwis].[IDnarzedzia] = narzedzia.id
+     left join TypNarzedzia
+     on TypNarzedzia.Id = narzedzia.TypNarzedziaID
+     where DataZwrotu IS NULL OR DataZwrotu = ''"
     Dim StringMojeWypo As String = "Select [wypozyczenia].ID, [IDpracownika], uzytkownicy.Imie, uzytkownicy.Nazwisko, [IDnarzedzia], narzedzia.Model, narzedzia.NumerSeryjny, TypNarzedzia.nazwa, [dataWypożyczenia], [dataZwrotu], [uwagi] 
      fROM [Narzedziownia2].[dbo].[wypozyczenia] 
      Left Join narzedzia 
@@ -75,6 +93,7 @@ Public Class form
      left join uzytkownicy 
      on wypozyczenia.IDpracownika = uzytkownicy.ID"
     Dim StringMojeWypoWhere As String
+    Dim StringPodsumowanieNarzędzia As String = "Select * from PodsumowanieNarzędzia"
 
     Dim MyBindingSource As BindingSource
     Dim EditSqlString As String
@@ -155,7 +174,7 @@ Public Class form
     End Function
     Function ClearTxtInPanel(InputPanel As Panel, errLbl As Label)
         Dim InputCtrl As Control
-        If errLbl.Text.Contains("Prawidłowo dodany wiersz") Then
+        If errLbl.Text.Contains("Prawidłowo dodan") Then
             For Each InputCtrl In InputPanel.Controls
                 If TypeOf InputCtrl Is TextBox Then
                     InputCtrl.Text = ""
@@ -167,6 +186,13 @@ Public Class form
 
 
     Private Sub Narzędziownia_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        ' MsgBox(my)
+        ' MsgBox(MyLVL)
+
+        StanMagazynuKL.RefreshData(StanMagazynuTabela, StringSqlStanMagazynu, LicznikStanMagazynu)
+        HistoriaNarzędziaKL.RefreshData(HistoriaNarzędziaTabela, StringSqlHistoriaNarzędzia, LicznikHistoriaNarzędzia)
+        PodsumowanieNarzędziaKL.RefreshData(PodsumowanieNarzędziTabela, StringPodsumowanieNarzędzia, PodsumowanieLicznik)
 
         sql.DodajKolumne(TabelaDodajNarzędzie, "ID")
         sql.DodajKolumneCheckbox(TabelaDodajNarzędzie, "Aktywny")
@@ -199,6 +225,9 @@ Public Class form
 
         WypozyczKL.RefreshData(WypożyczTabela, StringSqlStanMagazynu, LicznikWypożycz)
         ZwrocKL.RefreshData(ZwróćTabela, StringSqlDoZwrotu, LicznikZwróc)
+
+        OddajNaSerwisKL.RefreshData(SerwisOddajTabela, StringSqlStanMagazynu, LicznikOddajNaSerwis)
+        OddajSerwisKL.RefreshData(PowrotSerwisTable, StringSqlDoZwrotuSerwis, LicznikPowrotSerwis)
 
 
         StringMojeWypoWhere = StringMojeWypo & " Where wypozyczenia.IDpracownika = '" & MyId & "'"
@@ -235,19 +264,64 @@ Public Class form
         IdNarzedziaWypożycz.ValueMember = "ID"
 
 
+
+        IdNarzedzieOddajSerwis.DataSource = OddajNaSerwisKL.MyBindingSource
+        IdNarzedzieOddajSerwis.ValueMember = "ID"
+
+
+        PowrotSerwisIdNarzedzia.DataSource = OddajSerwisKL.MyBindingSource
+        PowrotSerwisIdNarzedzia.ValueMember = "ID"
+        PowrotSerwisIdNarzedzia.DisplayMember = "IDnarzedzia"
+
+
+        If sql.ExecQueryDataSet("Select ID, cast([NIP] as varchar(max)) + ' ||| ' + [NazwaSerwisu] + ' ||| ' + [Miasto] as FullName from [serwis] where aktywny = 1") IsNot Nothing Then
+            IdSerwisOddaj.DataSource = sql.ExecQueryDataSet("Select ID, cast([NIP] as varchar(max)) + ' ||| ' + [NazwaSerwisu] + ' ||| ' + [Miasto] as FullName from [serwis] where aktywny = 1").Tables(0)
+            IdSerwisOddaj.DisplayMember = "FullName"
+            IdSerwisOddaj.ValueMember = "ID"
+        End If
+
+        Dim sqlString As String
+        sqlString = "select ID, cast(DataFaktury as varchar(max))  + ' ||| ' + NrFaktury as Fullname from FakturySerwis
+        Where  Aktywny = 1 and SerwisID = (Select [IDserwis] from [WydaniaSerwis] where ID = '" & PowrotSerwisIdNarzedzia.SelectedValue & "')"
+        If sql.ExecQueryDataSet(sqlString) IsNot Nothing Then
+            PowrotSerwisNrFaktury.DataSource = sql.ExecQueryDataSet(sqlString).Tables(0)
+            PowrotSerwisNrFaktury.DisplayMember = "FullName"
+            PowrotSerwisNrFaktury.ValueMember = "ID"
+        End If
+
         If MyLVL = 1 Then
             Dim WybierzIdWypożycz As New Dictionary(Of String, String)()
             WybierzIdWypożycz.Add(MyId, MyId)
             ' Tu robimy sprawdzenie czy amidn czy zwykły admin ma dostęp do wszyskich id zwykły ma tylko do swojego. Jak dodamy brygady to i brygdzisci mogą do wszystkich którzy mają te samo id co jego brygada
             ' tak samo ogarniamy StringSqlDoZwrotu żeb widzieli tylko to na co mają uprawnienia
-            StringSqlDoZwrotu = StringSqlDoZwrotu & "Where ID = " & MyId & " order by ID desc"
+            StringSqlDoZwrotu = StringSqlDoZwrotu & " And IDpracownika = " & MyId & " order by ID desc"
             IdPracownikaWypozycz.DataSource = New BindingSource(WybierzIdWypożycz, Nothing)
             IdPracownikaWypozycz.DisplayMember = "Value"
             IdPracownikaWypozycz.ValueMember = "Key"
+            IdPracownikaMojeWypo.Visible = False
+            ChckFiltrPracownika.Visible = False
+            WybierzWypo.Visible = False
+            IdPracownikaMojeWypoLabel.Visible = False
+            MyTab.TabPages.Remove(MyTab.TabPages("DodajPracownika"))
+            MyTab.TabPages.Remove(MyTab.TabPages("DodajNarzędzie"))
+            MyTab.TabPages.Remove(MyTab.TabPages("DodajSerwis"))
+            MyTab.TabPages.Remove(MyTab.TabPages("StanMagazynu"))
+            MyTab.TabPages.Remove(MyTab.TabPages("OddajNaSerwis"))
+            MyTab.TabPages.Remove(MyTab.TabPages("PowrótZserwisu"))
+            MyTab.TabPages.Remove(MyTab.TabPages("DodajDostawce"))
+            MyTab.TabPages.Remove(MyTab.TabPages("HistoriaNarzędzia"))
+            MyTab.TabPages.Remove(MyTab.TabPages("DodajFakture"))
+            MyTab.TabPages.Remove(MyTab.TabPages("DodajFaktureSerwis"))
+            MyTab.TabPages.Remove(MyTab.TabPages("TypNarzedzia"))
+            MyTab.TabPages.Remove(MyTab.TabPages("Edytuj"))
+            MyTab.TabPages.Remove(MyTab.TabPages("PodsumowanieNarzędzi"))
+            AdminToolStrip.Visible = False
+            RaportyToolStripMenuItem.Visible = False
+
+            ' DodajPracownika.Visible = False
+
         ElseIf MyLVL = 2 Then
             ' MsgBox(sql.ExecQueryDataSet("Select ID from uzytkownicy where aktywny = 1").Tables(0).Rows)
-
-
 
             'For Each elem As String In sql.ExecQueryToList("Select ID from uzytkownicy where aktywny = 1")
             '    WybierzIdWypożycz.Add(elem, elem)
@@ -267,9 +341,42 @@ Public Class form
             'Next
             StringSqlDoZwrotu = StringSqlDoZwrotu & " order by ID desc"
         End If
+
     End Sub
+    Private Sub OddajNaSerwis_VisibleChanged(sender As Object, e As EventArgs) Handles OddajNaSerwis.VisibleChanged
+        If Me.Visible = True Then
+            OddajNaSerwisKL.RefreshData(SerwisOddajTabela, StringSqlStanMagazynu, LicznikOddajNaSerwis)
+
+            IdNarzedzieOddajSerwis.DataSource = OddajNaSerwisKL.MyBindingSource
+            IdNarzedzieOddajSerwis.ValueMember = "ID"
 
 
+            If sql.ExecQueryDataSet("Select ID, cast([NIP] as varchar(max)) + ' ||| ' + [NazwaSerwisu] + ' ||| ' + [Miasto] as FullName from [serwis] where aktywny = 1") IsNot Nothing Then
+                IdSerwisOddaj.DataSource = sql.ExecQueryDataSet("Select ID, cast([NIP] as varchar(max)) + ' ||| ' + [NazwaSerwisu] + ' ||| ' + [Miasto] as FullName from [serwis] where aktywny = 1").Tables(0)
+                IdSerwisOddaj.DisplayMember = "FullName"
+                IdSerwisOddaj.ValueMember = "ID"
+            End If
+        End If
+
+
+
+    End Sub
+    Private Sub PowrótZserwisu_VisibleChanged(sender As Object, e As EventArgs) Handles PowrótZserwisu.VisibleChanged
+        If Me.Visible = True Then
+            OddajSerwisKL.RefreshData(PowrotSerwisTable, StringSqlDoZwrotuSerwis, LicznikPowrotSerwis)
+            Dim sqlString As String
+            sqlString = "select ID, cast(DataFaktury as varchar(max))  + ' ||| ' + NrFaktury as Fullname from FakturySerwis
+            Where  Aktywny = 1 and SerwisID = (Select [IDserwis] from [WydaniaSerwis] where ID = '" & PowrotSerwisIdNarzedzia.SelectedValue & "')"
+            If sql.ExecQueryDataSet(sqlString) IsNot Nothing Then
+                PowrotSerwisNrFaktury.DataSource = sql.ExecQueryDataSet(sqlString).Tables(0)
+                PowrotSerwisNrFaktury.DisplayMember = "FullName"
+                PowrotSerwisNrFaktury.ValueMember = "ID"
+            End If
+            PowrotSerwisIdNarzedzia.DataSource = OddajSerwisKL.MyBindingSource
+            PowrotSerwisIdNarzedzia.ValueMember = "ID"
+            PowrotSerwisIdNarzedzia.DisplayMember = "IDnarzedzia"
+        End If
+    End Sub
 
     Private Sub DodajDostawce_VisibleChanged(sender As Object, e As EventArgs) Handles DodajDostawce.VisibleChanged
         If Me.Visible = True Then
@@ -332,21 +439,38 @@ Public Class form
     Private Sub ZwróćTabela_VisibleChanged(sender As Object, e As EventArgs) Handles ZwróćTabela.VisibleChanged
         If Me.Visible = True Then
             ZwrocKL.RefreshData(ZwróćTabela, StringSqlDoZwrotu, LicznikZwróc)
+            IdNarzędziaZwróć.DataSource = ZwrocKL.MyBindingSource
+            IdNarzędziaZwróć.DisplayMember = "IDnarzedzia"
+            IdNarzędziaZwróć.ValueMember = "IDnarzedzia"
         End If
-        IdNarzędziaZwróć.DataSource = ZwrocKL.MyBindingSource
-        IdNarzędziaZwróć.DisplayMember = "IDnarzedzia"
-        IdNarzędziaZwróć.ValueMember = "IDnarzedzia"
+
     End Sub
-    Private Sub WypożyczTabela_VisibleChanged(sender As Object, e As EventArgs) Handles WypożyczTabela.VisibleChanged
+
+    Private Sub WypożyczTab_VisibleChanged(sender As Object, e As EventArgs) Handles WypożyczTab.VisibleChanged
         If Me.Visible = True Then
             WypozyczKL.RefreshData(WypożyczTabela, StringSqlStanMagazynu, LicznikWypożycz)
+            If MyLVL = 2 Then
+                IdPracownikaWypozycz.DataSource = sql.ExecQueryDataSet("Select ID, cast(ID as varchar(max)) + ' ||| ' + [Imie] + ' ||| ' + [Nazwisko] as FullName from uzytkownicy where aktywny = 1").Tables(0)
+                IdPracownikaWypozycz.DisplayMember = "FullName"
+                IdPracownikaWypozycz.ValueMember = "ID"
+            End If
+            IdNarzedziaWypożycz.DataSource = WypozyczKL.MyBindingSource
+            IdNarzedziaWypożycz.ValueMember = "ID"
         End If
 
     End Sub
     Private Sub MojeWypożyczenia_VisibleChanged(sender As Object, e As EventArgs) Handles MojeWypożyczenia.VisibleChanged
         If Me.Visible = True Then
-            WypozyczKL.RefreshData(WypożyczTabela, StringSqlStanMagazynu, LicznikWypożycz)
+            '  WypozyczKL.RefreshData(WypożyczTabela, StringSqlStanMagazynu, LicznikWypożycz)
+
+            MojeWypozyczeniaKL.RefreshData(TabelaMojeWypo, StringMojeWypoWhere, LicznikMojeWypo)
+            If MyLVL = 2 Then
+                IdPracownikaMojeWypo.DataSource = sql.ExecQueryDataSet("Select ID, cast(ID as varchar(max)) + ' ||| ' + [Imie] + ' ||| ' + [Nazwisko] as FullName from uzytkownicy where aktywny = 1").Tables(0)
+                IdPracownikaMojeWypo.DisplayMember = "FullName"
+                IdPracownikaMojeWypo.ValueMember = "ID"
+            End If
         End If
+
 
     End Sub
 
@@ -501,11 +625,24 @@ Public Class form
         ClearTxtInPanel(TypNarzedziaPanel, ErrLabelTypNarzedzia)
 
     End Sub
+    Private Sub OddajSerwsiBtn_Click(sender As Object, e As EventArgs) Handles OddajSerwsiBtn.Click
 
+        sql.ArrayFill("@idSerwisu", IdSerwisOddaj.SelectedValue, 1)
+        sql.ArrayFill("@idNarzędzia", IdNarzedzieOddajSerwis.SelectedValue, 1)
+        sql.ArrayFill("@Desc", "", 2)
+        sql.ArrayFill("@Uwagi", UwagiOddajSerwis.Text, 1)
+
+        ErrLblSerwisOddaj.Text = sql.SpExec("[dbo].[OddajSerwis]", "@Desc")
+        ErrLblSerwisOddaj.Visible = True
+
+        OddajNaSerwisKL.RefreshData(SerwisOddajTabela, StringSqlStanMagazynu, LicznikOddajNaSerwis)
+
+        ClearTxtInPanel(WydajPanel, ErrLblSerwisOddaj)
+    End Sub
 
 
     Private Sub DodajFaktureSerwisMenu_Click(sender As Object, e As EventArgs) Handles FakturaSerwisMenu.Click
-        TabControl.SelectedTab = DodajFaktureSerwis
+        MyTab.SelectedTab = DodajFaktureSerwis
     End Sub
 
     Private Sub TabelaWybierz_SelectedIndexChanged(sender As Object, e As EventArgs) Handles TabelaWybierz.SelectedIndexChanged
@@ -625,7 +762,19 @@ Public Class form
         ClearTxtInPanel(WypożyczPanel, ErrLblWypożycz)
 
     End Sub
+    Private Sub PowrotSerwisBtn_Click(sender As Object, e As EventArgs) Handles PowrotSerwisBtn.Click
+        sql.ArrayFill("@FakturaSerwisID", PowrotSerwisNrFaktury.SelectedValue, 1)
+        sql.ArrayFill("@WydanieID", PowrotSerwisIdNarzedzia.SelectedValue, 1)
+        sql.ArrayFill("@Cena", PowrotSerwisStawka.Text, 1)
+        sql.ArrayFill("@Desc", "", 2)
+        '     sql.ArrayFill("@Uwagi", PowrotSerwisUwagi.Text, 1)
 
+        ErrLblPowrotSerwis.Text = sql.SpExec("[dbo].[DodajDetaleFakturSerwis]", "@Desc")
+        ErrLblPowrotSerwis.Visible = True
+
+        OddajSerwisKL.RefreshData(PowrotSerwisTable, StringSqlDoZwrotuSerwis, LicznikPowrotSerwis)
+        ClearTxtInPanel(PowrotSerwisPanel, ErrLblPowrotSerwis)
+    End Sub
 
 
     Private Sub ZwróćTabela_FilterStringChanged(sender As Object, e As EventArgs) Handles ZwróćTabela.FilterStringChanged
@@ -646,6 +795,7 @@ Public Class form
 
     End Sub
     Private Sub ChckFiltrPracownika_CheckedChanged(sender As Object, e As EventArgs) Handles ChckFiltrPracownika.CheckedChanged
+
         If ChckFiltrPracownika.Checked Then
             StringMojeWypoWhere = StringMojeWypo & " Where IDpracownika = '" & IdPracownikaMojeWypo.SelectedValue & "'"
             MojeWypozyczeniaKL.RefreshData(TabelaMojeWypo, StringMojeWypoWhere, LicznikMojeWypo)
@@ -814,7 +964,7 @@ Public Class form
     End Sub
 
     Private Sub DodajFaktureMenu_Click(sender As Object, e As EventArgs) Handles FakturyMenu.Click
-        TabControl.SelectedTab = DodajFakture
+        MyTab.SelectedTab = DodajFakture
     End Sub
 
     Private Sub DostawcaKodPocztowy_LostFocus(sender As Object, e As EventArgs) Handles DostawcaKodPocztowy.LostFocus
@@ -868,62 +1018,64 @@ Public Class form
     '---------------------------------------------------------------------------------------------------------------------------------
 
     Private Sub Wypożycz_Click(sender As Object, e As EventArgs) Handles Wypożycz.Click
-        TabControl.SelectedTab = WypożyczTab
+        MyTab.SelectedTab = WypożyczTab
     End Sub
 
     Private Sub Zwrot_Click(sender As Object, e As EventArgs) Handles Zwrot.Click
-        TabControl.SelectedTab = ZwróćTab
+        MyTab.SelectedTab = ZwróćTab
     End Sub
 
     Private Sub SprawdźMojeWypożyczeniaMenu_Click(sender As Object, e As EventArgs) Handles SprawdźMojeWypożyczeniaMenu.Click
-        TabControl.SelectedTab = MojeWypożyczenia
+        MyTab.SelectedTab = MojeWypożyczenia
     End Sub
 
     Private Sub StanMagazynuMenu_Click(sender As Object, e As EventArgs) Handles StanMagazynuMenu.Click
-        TabControl.SelectedTab = StanMagazynu
+        MyTab.SelectedTab = StanMagazynu
     End Sub
 
     Private Sub DodajNarzedzieMenu_Click(sender As Object, e As EventArgs) Handles NarzedzieMenu.Click
-        TabControl.SelectedTab = DodajNarzędzie
+        MyTab.SelectedTab = DodajNarzędzie
     End Sub
 
     Private Sub DodajPracownikaMenu_Click(sender As Object, e As EventArgs) Handles PracownikMenu.Click
-        TabControl.SelectedTab = DodajPracownika
+        MyTab.SelectedTab = DodajPracownika
     End Sub
 
     Private Sub DodajSerwisMenu_Click(sender As Object, e As EventArgs) Handles SerwisMenu.Click
-        TabControl.SelectedTab = DodajSerwis
+        MyTab.SelectedTab = DodajSerwis
     End Sub
 
     Private Sub DodajDostawceMenu_Click(sender As Object, e As EventArgs) Handles DostawceMenu.Click
-        TabControl.SelectedTab = DodajDostawce
+        MyTab.SelectedTab = DodajDostawce
     End Sub
 
     Private Sub OddajNaSerwisMenu_Click(sender As Object, e As EventArgs) Handles OddajNaSerwisMenu.Click
-        TabControl.SelectedTab = OddajNaSerwis
+        MyTab.SelectedTab = OddajNaSerwis
     End Sub
 
     Private Sub HistoriaNarzędziaMenu_Click(sender As Object, e As EventArgs) Handles HistoriaNarzędziaMenu.Click
-        TabControl.SelectedTab = HistoriaNarzędzia
+        MyTab.SelectedTab = HistoriaNarzędzia
     End Sub
 
     Private Sub PowrotZserwisuMenu_Click(sender As Object, e As EventArgs) Handles PowrotZserwisuMenu.Click
-        TabControl.SelectedTab = PowrótZserwisu
+        MyTab.SelectedTab = PowrótZserwisu
     End Sub
 
-    Private Sub DostawcaTelefon_KeyPress(sender As Object, e As KeyPressEventArgs) Handles DostawcaTelefon.KeyPress
 
-    End Sub
 
-    Private Sub DodajSerwisTelefon_KeyPress(sender As Object, e As KeyPressEventArgs) Handles DodajSerwisTelefon.KeyPress
+    Private Sub PowrotSerwisIdNarzedzia_SelectedIndexChanged(sender As Object, e As EventArgs) Handles PowrotSerwisIdNarzedzia.SelectedIndexChanged
+        Dim sqlString As String
+        sqlString = "select ID, cast(DataFaktury as varchar(max))  + ' ||| ' + NrFaktury as Fullname from FakturySerwis
+        Where  Aktywny = 1 and SerwisID = (Select [IDserwis] from [WydaniaSerwis] where ID = '" & PowrotSerwisIdNarzedzia.SelectedValue & "')"
 
-    End Sub
+        If sql.ExecQueryDataSet(sqlString) IsNot Nothing Then
+            PowrotSerwisNrFaktury.DataSource = sql.ExecQueryDataSet(sqlString).Tables(0)
+            PowrotSerwisNrFaktury.DisplayMember = "FullName"
+            PowrotSerwisNrFaktury.ValueMember = "ID"
+        Else
+            PowrotSerwisNrFaktury.Items.Clear()
+        End If
 
-    Private Sub DodajSerwisNIP_KeyPress(sender As Object, e As KeyPressEventArgs) Handles DodajSerwisNIP.KeyPress
-
-    End Sub
-
-    Private Sub DodajNarzędzieCena_KeyPress(sender As Object, e As KeyPressEventArgs) Handles DodajNarzędzieCena.KeyPress
 
     End Sub
 
